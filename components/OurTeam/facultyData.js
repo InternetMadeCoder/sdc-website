@@ -1,8 +1,8 @@
 export const faculty = [
     {
         id: 1,
-        fullName: 'Dr Sandeep Chaurasia',
-        designation: 'Professor & Director SCSE',
+        fullName: 'Professor (Dr.) Sandeep Chaurasia',
+        designation: 'Director, Training & Placement CSE',
         email: 'sandeep.chaurasia@jaipur.manipal.edu',
         contact_number: '+91 9571228110',
         linkedin: 'https://www.linkedin.com/in/sandeep-chaurasia-0457568a/',
@@ -10,7 +10,7 @@ export const faculty = [
     },
     {
         id: 2,
-        fullName: 'Dr Neha Chaudhary',
+        fullName: 'Professor (Dr.) Neha Chaudhary',
         designation: 'Head of Department',
         email: 'chaudhary.neha@jaipur.manipal.edu',
         contact_number: '+91 9785500056',
