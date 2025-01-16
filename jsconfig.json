@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "**/*",
+    "/Users/vinayak/Desktop/sdc-website/components/ui/PersonCard.js"
+  ]
+}
