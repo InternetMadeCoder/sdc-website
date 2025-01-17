@@ -89,4 +89,22 @@ export const faculty = [
         linkedin: 'https://www.linkedin.com/in/rishi-gupta-7b8a3726/',
         profile_picture: '/profile-images/faculty/Rishi-Gupta.jpg',
     },
+    {
+        id: 11,
+        fullName: 'Dr. Dibakar Sinha',
+        designation: 'Assistant Professor (Senior Scale)',
+        email: 'dibakar.sinha@jaipur.manipal.edu',
+        contact_number: '+91 7507531275',
+        linkedin: 'https://www.linkedin.com/in/dibakar-sinha-ph-d-b388b6a/',
+        profile_picture: '/profile-images/faculty/Dibakar-Sinha.jpg',
+    },
+    {
+        id: 12,
+        fullName: 'Mr. Jay Shankar Sharma',
+        designation: 'Assistant Professor',
+        email: 'jay.sharma@jaipur.manipal.edu',
+        contact_number: '',
+        linkedin: 'https://www.linkedin.com/in/jay-shankar-sharma-294828107/',
+        profile_picture: '/profile-images/faculty/Jay-Shankar-Sharma.jpg',
+    },
 ];
