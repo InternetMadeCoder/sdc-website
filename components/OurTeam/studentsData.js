@@ -152,7 +152,7 @@ export const students = [
      {
          id: 16,
          fullName: 'Agam Bhasin',
-         year: '2025',
+         year: '2027',
         project_code: 'PROJ03',
        Position_in_Team: 'Student Developer',
           Role: '',
