@@ -8,8 +8,8 @@ export default function Home() {
     <div className="overflow-hidden relative">
       <HeroSection />
       <div className="white-section">
-        <BlogSection />
         <TestimonialsSection />
+        <BlogSection />
         <ContactSection />
       </div>
     </div>
