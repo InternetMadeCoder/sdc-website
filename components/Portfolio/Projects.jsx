@@ -96,6 +96,14 @@ const Projects = () => {
     }, 300); // Match this with CSS transition duration
   };
 
+  // Add this new function to handle outside clicks
+  const handleOutsideClick = (e) => {
+    // Check if the click is outside the popup content
+    if (e.target.classList.contains('popup-overlay')) {
+      closePopup();
+    }
+  };
+
   return (
     <>
       <div className="px-4 mb-32">
@@ -114,7 +122,10 @@ const Projects = () => {
 
             {selectedProject && (
               <Popup>
-                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+                <div 
+                  className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 popup-overlay"
+                  onClick={handleOutsideClick}
+                >
                   <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-lg max-w-md md:max-w-3xl lg:max-w-5xl w-full h-auto max-h-[80vh] overflow-auto relative">
                     <button
                       onClick={closePopup}
