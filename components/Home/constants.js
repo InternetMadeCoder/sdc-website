@@ -39,13 +39,13 @@ export const testimonials = [
         message: "I take immense pride in our team's unwavering commitment to excellence. I am proud to lead such a dynamic institution that prioritizes excellence in software development education. Together, we continue to push the boundaries of innovation and shape the future of the industry.",
         profile: '/profile-images/faculty/Amit-Garg.jpeg',
     },
-    {
-        id: 3,
-        user: 'Professor (Dr.) Sandeep Chaurasia',
-        company: 'Director, Training and Placement, CSE, Manipal University Jaipur',
-        message: "I'm immensely proud of our Software Development Centre's achievements. It elevates academic standards, fosters excellence, and equips students with essential skills to excel in software engineering, ensuring their success in the global arena.",
-        profile: '/profile-images/faculty/Sandeep-Chaurasia.jpeg',
-    },
+    // {
+    //     id: 3,
+    //     user: 'Professor (Dr.) Sandeep Chaurasia',
+    //     company: 'Director, Training and Placement, CSE, Manipal University Jaipur',
+    //     message: "I'm immensely proud of our Software Development Centre's achievements. It elevates academic standards, fosters excellence, and equips students with essential skills to excel in software engineering, ensuring their success in the global arena.",
+    //     profile: '/profile-images/faculty/Sandeep-Chaurasia.jpeg',
+    // },
     {
         id: 4,
         user: 'Eashan Yadav',
