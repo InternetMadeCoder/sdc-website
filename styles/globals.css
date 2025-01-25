@@ -1,0 +1,19 @@
+.square-card {
+  aspect-ratio: 1;
+  height: 400px;
+  overflow: hidden;
+}
+
+.square-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-6 {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

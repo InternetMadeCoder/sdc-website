@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const TestimonialCard = ({ user, company, message, profile }) => {
+const TestimonialCard = ({ user, company, message, profile, className = '' }) => {
   return (
-    <div className="px-4 py-8 bg-[#f5f1ed] text-black rounded-[25px] flex flex-col md:flex-row gap-6 items-start sm:px-12">
+    <div className={`px-4 py-8 bg-[#f5f1ed] rounded-[25px] flex flex-col md:flex-row gap-6 items-start sm:px-12 ${className}`}>
       <div className="flex-shrink-0 flex flex-col items-center md:items-start text-center md:text-left">
         <Image
           src={profile}
@@ -17,7 +17,7 @@ const TestimonialCard = ({ user, company, message, profile }) => {
         <div className="mb-4">
           <span className="text-lg font-bold">{user}</span>
           <br />
-          <span className="text-sm text-gray-600">{company}</span>
+          <span className="text-sm">{company}</span>
         </div>
         <p className="italic text-sm text-justify sm:text-base">{message}</p>
       </div>

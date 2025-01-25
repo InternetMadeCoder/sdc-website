@@ -27,24 +27,24 @@ export const projects = [
 export const testimonials = [
     {
         id: 1,
-        user: 'Professor (Dr.) Sandeep Chaurasia',
-        company: 'Director, Training and Placement, CSE, Manipal University Jaipur',
-        message: "I'm immensely proud of our Software Development Centre's achievements. It elevates academic standards, fosters excellence, and equips students with essential skills to excel in software engineering, ensuring their success in the global arena.",
-        profile: '/profile-images/faculty/Sandeep-Chaurasia.jpeg',
-    },
-    {
-        id: 2,
         user: 'Professor (Dr.) Neha Chaudhary',
         company: 'HOD, CSE, Manipal University Jaipur',
         message: "I'm delighted by the Software Development Centre's role in nurturing student growth. With top-notch facilities and experts, it fosters innovation, equipping students with skills for impactful contributions in computer science.",
         profile: '/profile-images/faculty/Neha-Chaudhary.jpeg',
     },
     {
-        id: 3,
+        id: 2,
         user: 'Dr Amit Garg',
         company: 'Associate Professor, CSE, Manipal University Jaipur',
         message: "I take immense pride in our team's unwavering commitment to excellence. I am proud to lead such a dynamic institution that prioritizes excellence in software development education. Together, we continue to push the boundaries of innovation and shape the future of the industry.",
         profile: '/profile-images/faculty/Amit-Garg.jpeg',
+    },
+    {
+        id: 3,
+        user: 'Professor (Dr.) Sandeep Chaurasia',
+        company: 'Director, Training and Placement, CSE, Manipal University Jaipur',
+        message: "I'm immensely proud of our Software Development Centre's achievements. It elevates academic standards, fosters excellence, and equips students with essential skills to excel in software engineering, ensuring their success in the global arena.",
+        profile: '/profile-images/faculty/Sandeep-Chaurasia.jpeg',
     },
     {
         id: 4,
