@@ -27,7 +27,7 @@ export const projects = [
     project_code: "PROJ02",
     poster: "/project-images/PROJ02/PROJ02-poster.png",
     description:
-      "The Note Sheet Management System is a platform designed to streamline the process of managing and tracking academic note sheets within an educational institution. The system facilitates seamless communication between students and faculty members while ensuring efficient approval workflows and record-keeping.",
+      "The Note Sheet Management System is a platform designed to streamline the process of managing and tracking academic note sheets within an educational institution.",
     tag: "",
     image: "/project-images/PROJ02/PROJ02-thumbnail.png",
     link: "https://youtu.be/zKjyaYgKuH0",
@@ -47,7 +47,8 @@ export const projects = [
     project_code: "PROJ05",
     poster: "/project-images/PROJ05/PROJ05-poster.png",
     description:
-      "Project Match serves as an interactive online platform designed to facilitate the efficient distribution of minor projects among teachers and students. Within this system, teachers maintain the flexibility to accept up to 12 students, ensuring that workloads remain manageable while allowing for personalized mentorship. Meanwhile, students are empowered to submit project proposals through designated forms, fostering clear communication and structured submission processes. The platform's dashboard offers transparency by providing visibility into the total number of teachers available and the respective number of students accepted by each instructor.",    tag: "",
+      "Project Match serves as an interactive online platform designed to facilitate the efficient distribution of minor projects among teachers and students. Within this system, teachers maintain the flexibility to accept up to 12 students, ensuring that workloads remain manageable while allowing for personalized mentorship. ",    
+    tag: "",
     image: "/project-images/project-thumbnail.png",
     link: "https://youtu.be/UyNOgFV1Q3I",
   },
@@ -195,18 +196,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ04",
-    Role: "Frontend",
-    BasicSkillsRequired: "React.JS, HTML, CSS, and JavaScript",
-  },
-  {
-    project_code: "PROJ04",
-    Role: "Backend",
-    BasicSkillsRequired: "Node.JS, Express.js, OpenStreet Maps, OSRM",
-  },
-  {
-    project_code: "PROJ04",
-    Role: "Database",
-    BasicSkillsRequired: "MongoDB",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "React.JS, HTML, CSS, JavaScript, Node.JS, Express.js, OpenStreet Maps, OSRM, MongoDB",
   },
   {
     project_code: "PROJ04",
@@ -220,18 +211,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ03",
-    Role: "Frontend",
-    BasicSkillsRequired: "HTML5, CSS3, JavaScript, React.js, Bootstrap",
-  },
-  {
-    project_code: "PROJ03",
-    Role: "Backend",
-    BasicSkillsRequired: "Node.js, Python, TypeScript",
-  },
-  {
-    project_code: "PROJ03",
-    Role: "Database",
-    BasicSkillsRequired: "MongoDB, MySQL",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "HTML5, CSS3, JavaScript, React.js, Bootstrap, Node.js, Python, TypeScript, MongoDB, MySQL",
   },
   {
     project_code: "PROJ03",
@@ -245,19 +226,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ02",
-    Role: "Frontend",
-    BasicSkillsRequired: "HTML, CSS, JavaScript, React.js, Tailwind CSS",
-  },
-  {
-    project_code: "PROJ02",
-    Role: "Backend",
-    BasicSkillsRequired:
-      "Express.js as back-end framework, JSON Web Tokens (JWT)",
-  },
-  {
-    project_code: "PROJ02",
-    Role: "Database",
-    BasicSkillsRequired: "PostgreSQL",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "HTML, CSS, JavaScript, React.js, Tailwind CSS, Express.js as back-end framework, JSON Web Tokens (JWT), PostgreSQL",
   },
   {
     project_code: "PROJ02",
@@ -271,18 +241,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ05",
-    Role: "Frontend",
-    BasicSkillsRequired: "HTML, CSS, Javascript",
-  },
-  {
-    project_code: "PROJ05",
-    Role: "Backend",
-    BasicSkillsRequired: "PHP",
-  },
-  {
-    project_code: "PROJ05",
-    Role: "Database",
-    BasicSkillsRequired: "SQL",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "HTML, CSS, Javascript, PHP, SQL",
   },
   {
     project_code: "PROJ05",
@@ -296,18 +256,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ06",
-    Role: "Frontend",
-    BasicSkillsRequired: "React.js, Flutter, Swift",
-  },
-  {
-    project_code: "PROJ06",
-    Role: "Backend",
-    BasicSkillsRequired: "NodeJS, ExpressJS",
-  },
-  {
-    project_code: "PROJ06",
-    Role: "Database",
-    BasicSkillsRequired: "MongoDB",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "React.js, Flutter, Swift, NodeJS, ExpressJS, MongoDB",
   },
   {
     project_code: "PROJ06",
@@ -321,19 +271,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ08",
-    Role: "Frontend",
-    BasicSkillsRequired:
-      "NextJs, TailwindCSS, Framer Motion, React Icons, Emails, ParticleJs",
-  },
-  {
-    project_code: "PROJ08",
-    Role: "Backend",
-    BasicSkillsRequired: "NodeJS",
-  },
-  {
-    project_code: "PROJ08",
-    Role: "Database",
-    BasicSkillsRequired: "N/A",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "NextJs, TailwindCSS, Framer Motion, React Icons, Emails, ParticleJs, NodeJS",
   },
   {
     project_code: "PROJ08",
@@ -347,18 +286,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ09",
-    Role: "Frontend",
-    BasicSkillsRequired: "HTML, CSS, JavaScript, GoogleAPIs, ReactJS",
-  },
-  {
-    project_code: "PROJ09",
-    Role: "Backend",
-    BasicSkillsRequired: "Nodejs",
-  },
-  {
-    project_code: "PROJ09",
-    Role: "Database",
-    BasicSkillsRequired: "MongoDB",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "HTML, CSS, JavaScript, GoogleAPIs, ReactJS, Nodejs, MongoDB",
   },
   {
     project_code: "PROJ09",
@@ -372,18 +301,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ01",
-    Role: "Frontend",
-    BasicSkillsRequired: "Flutter",
-  },
-  {
-    project_code: "PROJ01",
-    Role: "Backend",
-    BasicSkillsRequired: "NodeJS",
-  },
-  {
-    project_code: "PROJ01",
-    Role: "Database",
-    BasicSkillsRequired: "PostgreSQL",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "Flutter, NodeJS, PostgreSQL",
   },
   {
     project_code: "PROJ01",
@@ -397,18 +316,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ07",
-    Role: "Frontend",
-    BasicSkillsRequired: "HTML, CSS, Javascript, Tailwind CSS, react.js",
-  },
-  {
-    project_code: "PROJ07",
-    Role: "Backend",
-    BasicSkillsRequired: "Node.js, Express.js, JWT",
-  },
-  {
-    project_code: "PROJ07",
-    Role: "Database",
-    BasicSkillsRequired: "Mongo DB",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "HTML, CSS, Javascript, Tailwind CSS, react.js, Node.js, Express.js, JWT, Mongo DB",
   },
   {
     project_code: "PROJ07",
@@ -422,18 +331,8 @@ export const projectDetails = [
   },
   {
     project_code: "PROJ10",
-    Role: "Frontend",
-    BasicSkillsRequired: "React.js, TailwindCSS",
-  },
-  {
-    project_code: "PROJ10",
-    Role: "Backend",
-    BasicSkillsRequired: "Node.js, Express.js",
-  },
-  {
-    project_code: "PROJ10",
-    Role: "Database",
-    BasicSkillsRequired: "MongoDB",
+    Role: "Tech Stack",
+    BasicSkillsRequired: "React.js, TailwindCSS, Node.js, Express.js, MongoDB",
   },
   {
     project_code: "PROJ10",

@@ -125,144 +125,104 @@ const Projects = () => {
                     </button>
 
                     <div className="flex flex-col items-center gap-8">
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">
-                        {selectedProject.title}
-                      </h2>
-
                       <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start w-full">
-                        <div className="flex flex-col justify-start w-full sm:w-1/3 gap-6">
-                          <ul className="list-disc text-sm sm:text-base md:text-lg space-y-3 flex flex-col flex-wrap">
-                            {projectDetails
-                              .filter(
-                                (detail) =>
-                                  detail.project_code ===
-                                    selectedProject.project_code &&
-                                  (detail.Role === "Type" ||
-                                    detail.Role === "Year Created")
-                              )
-                              .map((detail, index) => (
-                                <li key={index}>
-                                  <span className="font-bold">
-                                    {detail.Role}:
+                        {/* Left Column */}
+                        <div className="flex flex-col justify-start w-full sm:w-1/3 h-[400px]"> {/* Added fixed height */}
+                          {/* Title */}
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-black mb-4">
+                            {selectedProject.title}
+                          </h2>
+
+                          {/* Flex container for bulletpoints and description */}
+                          <div className="flex flex-col h-full">
+                            {/* Project Details */}
+                            <div className="pr-4 mb-4">
+                              <ul className="space-y-3 flex flex-col flex-wrap">
+                                {projectDetails
+                                  .filter(
+                                    (detail) =>
+                                      detail.project_code ===
+                                        selectedProject.project_code &&
+                                      (detail.Role === "Type" ||
+                                        detail.Role === "Year Created" ||
+                                        detail.Role === "Tech Stack")
+                                  )
+                                  .map((detail, index) => (
+                                    <li key={index} className="list-none text-justify">
+                                      <span className="font-bold text-[#4C1D95]"> {/* Changed to dark purple */}
+                                        {detail.Role}:
+                                      </span>{" "}
+                                      {detail.BasicSkillsRequired || "N/A"}
+                                    </li>
+                                  ))}
+                                <li className="list-none text-justify">
+                                  <span className="font-bold text-[#4C1D95]">
+                                    Faculty Mentor:
                                   </span>{" "}
-                                  {detail.BasicSkillsRequired || "N/A"}
+                                  {getMentorRole(selectedProject.project_code, "Faculty Mentor")}
                                 </li>
-                              ))}
+                                <li className="list-none text-justify">
+                                  <span className="font-bold text-[#4C1D95]">
+                                    Industry Mentor:
+                                  </span>{" "}
+                                  {getMentorRole(selectedProject.project_code, "Industry Expert")}
+                                </li>
+                              </ul>
+                            </div>
 
-                            <li>
-                              <span className="font-bold">Frontend:</span>{" "}
-                              {projectDetails
-                                .filter(
-                                  (detail) =>
-                                    detail.project_code ===
-                                      selectedProject.project_code &&
-                                    detail.Role === "Frontend"
-                                )
-                                .map(
-                                  (detail, index) =>
-                                    detail.BasicSkillsRequired || "N/A"
-                                )
-                                .join(", ")}
-                            </li>
-                            <li>
-                              <span className="font-bold">Backend:</span>{" "}
-                              {projectDetails
-                                .filter(
-                                  (detail) =>
-                                    detail.project_code ===
-                                      selectedProject.project_code &&
-                                    detail.Role === "Backend"
-                                )
-                                .map(
-                                  (detail, index) =>
-                                    detail.BasicSkillsRequired || "N/A"
-                                )
-                                .join(", ")}
-                            </li>
-                            <li>
-                              <span className="font-bold">Database:</span>{" "}
-                              {projectDetails
-                                .filter(
-                                  (detail) =>
-                                    detail.project_code ===
-                                      selectedProject.project_code &&
-                                    detail.Role === "Database"
-                                )
-                                .map(
-                                  (detail, index) =>
-                                    detail.BasicSkillsRequired || "N/A"
-                                )
-                                .join(", ")}
-                            </li>
+                            {/* Video instruction text - moved up and size increased */}
+                            {selectedProject.link && !isPlaying && (
+                              <p className="text-[#D34747] text-sm sm:text-base mt-4 animate-pulse">
+                                Click on the image to watch a video and learn more!
+                              </p>
+                            )}
 
-                            {/* Add Faculty Mentor and Industry Mentor */}
-                            <li>
-                              <span className="font-bold">Faculty Mentor:</span>{" "}
-                              {getMentorRole(
-                                selectedProject.project_code,
-                                "Faculty Mentor"
-                              )}
-                            </li>
-                            <li>
-                              <span className="font-bold">
-                                Industry Mentor:
-                              </span>{" "}
-                              {getMentorRole(
-                                selectedProject.project_code,
-                                "Industry Expert"
-                              )}
-                            </li>
-                          </ul>
-
-                          {/* Add instruction text when video is available and not playing */}
-                          {selectedProject.link && !isPlaying && (
-                            <p className="text-[#D34747] dark:text-[#EB9335] font-semibold text-sm md:text-base mt-4 animate-pulse">
-                              Click on the image to watch a video and learn more about the project!
-                            </p>
-                          )}
-
-                          {/* Show description after clicking */}
-                          {isPlaying && (
-                            <p className="text-sm sm:text-base text-justify mt-4">
-                              {selectedProject.description}
-                            </p>
-                          )}
+                            {/* Description - shows up when video is playing */}
+                            {isPlaying && (
+                              <div className="flex-1 overflow-y-auto pr-4 mt-4">
+                                <p className="text-sm text-gray-700 text-justify">
+                                  {selectedProject.description}
+                                </p>
+                              </div>
+                            )}
+                          </div>
                         </div>
 
-                        <div className="flex flex-shrink-0 w-full sm:w-2/3 justify-center relative">
+                        {/* Right Column - Video/Image Section */}
+                        <div className="flex flex-col flex-1 h-[400px]"> {/* Added fixed height */}
                           {selectedProject.link && !isPlaying ? (
-                            <div className="relative group cursor-pointer" onClick={handleVideoClick}>
+                            <div className="relative group cursor-pointer w-full max-w-[800px] h-[400px] mx-auto" onClick={handleVideoClick}>
                               <Image
                                 src={selectedProject.poster || selectedProject.image}
-                                width={1200}
-                                height={800}
+                                fill
                                 alt="Poster"
                                 priority={true}
-                                className="rounded-md object-contain w-full h-auto max-h-[70vh]"
+                                className="rounded-md object-contain"
                               />
                               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity rounded-md">
                                 <FaPlay className="text-white text-4xl" />
                               </div>
                             </div>
                           ) : selectedProject.link && isPlaying ? (
-                            <div className="w-full h-auto aspect-[4/3]"> {/* Added wrapper div with aspect ratio */}
+                            <div className="w-full max-w-[800px] h-[400px] mx-auto">
                               <iframe
                                 src={`${getEmbedLink(selectedProject.link)}?autoplay=1`}
                                 frameBorder="0"
                                 allow="autoplay; encrypted-media"
                                 allowFullScreen
-                                className="w-full h-full rounded-md object-contain max-h-[70vh]"
+                                className="w-full h-full rounded-md"
                               />
                             </div>
                           ) : selectedProject.poster && (
-                            <Image
-                              src={selectedProject.poster}
-                              width={1200}
-                              height={800}
-                              alt="Poster"
-                              priority={true}
-                              className="rounded-md object-contain w-full h-auto max-h-[70vh]"
-                            />
+                            <div className="w-full max-w-[800px] h-[400px] mx-auto relative">
+                              <Image
+                                src={selectedProject.poster}
+                                fill
+                                alt="Poster"
+                                priority={true}
+                                className="rounded-md object-contain"
+                              />
+                            </div>
                           )}
                         </div>
 
