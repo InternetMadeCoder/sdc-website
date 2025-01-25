@@ -20,7 +20,7 @@ const PortfolioSection = () => {
                         ))}
                     </Carousel>
                 </div>
-                <Button className="mt-4" link="/portfolio" title="EXPLORE" />
+                <Button className="mt-4" link="/projects" title="EXPLORE" />
             </div>
         </div>
     )
