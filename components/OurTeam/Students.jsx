@@ -9,16 +9,18 @@ import { FaLinkedin } from "react-icons/fa";
 const Students = () => {
     const [selectedYear, setSelectedYear] = useState('2024');
 
-    const uniqueYears = Array.from(new Set(students.map(student => student.year)));
+    const uniqueYears = ['All', ...Array.from(new Set(students.map(student => student.year)))
+        .sort((a, b) => a - b)]; // Sort years in ascending order
 
-    const filteredStudents = selectedYear ? students.filter(student => student.year === selectedYear) : students;
+    const filteredStudents = selectedYear === 'All' 
+        ? students
+        : students.filter(student => student.year === selectedYear);
 
     return (
         <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center">Students</h2>
             <div className="flex justify-center mt-8">
                 <select className="p-2 w-60 lg:w-[512px] border-b-2 border-black focus:outline-none" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-                    <option value="">Select Year</option>
                     {uniqueYears.map((year, index) => (
                         <option key={index} value={year}>{year}</option>
                     ))}
