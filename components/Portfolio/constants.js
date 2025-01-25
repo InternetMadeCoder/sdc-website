@@ -16,7 +16,7 @@ export const projects = [
     project_code: "PROJ01",
     poster: "/project-images/PROJ01/PROJ01-poster.png",
     description:
-      "Introducing a cutting-edge attendance management solution revolutionizing traditional method with geofencing technology. This innovative application offers seamless attendance tracking by establishing virtual boundaries corresponding to classroom locations. Students effortlessly mark their attendance upon entering the designated area, leveraging their mobile devices for a hassle-free experience. With meticulous data collection, including precise timestamps and duration of classroom stays, accurate attendance records are ensured, reducing manual effort, and enhancing efficiency for educators. Beyond attendance tracking, the application's integrated features promote a focused learning environment, empowering educators to allocate more time to substantive educational activities. In summary, this geofencing-based attendance application signifies a significant advancement in education technology, fostering optimal teaching and learning experiences.",
+      "Introducing an innovative geofencing-based attendance management solution that simplifies tracking by creating virtual classroom boundaries. Students can effortlessly mark attendance using their mobile devices upon entering the designated area. The system ensures accurate records with precise timestamps and duration tracking, reducing manual effort and improving efficiency for educators.",
     tag: "",
     image: "/project-images/PROJ01/PROJ01-thumbnail.jpg",
     link: "https://youtu.be/ynfneSQwoQY",
@@ -47,8 +47,7 @@ export const projects = [
     project_code: "PROJ05",
     poster: "/project-images/PROJ05/PROJ05-poster.png",
     description:
-      "Project Match serves as an interactive online platform designed to facilitate the efficient distribution of minor projects among teachers and students. Within this system, teachers maintain the flexibility to accept up to 12 students, ensuring that workloads remain manageable while allowing for personalized mentorship. Meanwhile, students are empowered to submit project proposals through designated forms, fostering clear communication and structured submission processes. The platform's dashboard offers transparency by providing visibility into the total number of teachers available and the respective number of students accepted by each instructor. This feature enables students to make well-informed decisions regarding their project selections. By implementing streamlined procedures and incorporating interactive elements, Project Match encourages productive collaboration among participants. This approach ultimately contributes to enhanced learning outcomes and the cultivation of academic excellence within the educational community.",
-    tag: "",
+      "Project Match serves as an interactive online platform designed to facilitate the efficient distribution of minor projects among teachers and students. Within this system, teachers maintain the flexibility to accept up to 12 students, ensuring that workloads remain manageable while allowing for personalized mentorship. Meanwhile, students are empowered to submit project proposals through designated forms, fostering clear communication and structured submission processes. The platform's dashboard offers transparency by providing visibility into the total number of teachers available and the respective number of students accepted by each instructor.",    tag: "",
     image: "/project-images/project-thumbnail.png",
     link: "https://youtu.be/UyNOgFV1Q3I",
   },
@@ -58,7 +57,7 @@ export const projects = [
     project_code: "PROJ08",
     poster: "/project-images/PROJ08/PROJ08-poster.jpg",
     description:
-      "The SDC Website project aims to develop a dynamic online platform for the Software Development Centre (SDC) that enhances internal operations while fostering student success, collaboration, and innovation. The project's primary objectives include creating an engaging landing page to showcase the SDC's mission, vision, and current initiatives, implementing a robust project management system for efficient project allocation and tracking, facilitating a seamless onboarding process for new opportunities, and highlighting successful projects completed by students.",
+      "The SDC Website project aims to develop a dynamic online platform for the Software Development Centre (SDC) that enhances internal operations while fostering student success, collaboration, and innovation. The project's primary objectives include creating an engaging landing page to showcase the SDC's mission, vision, and current initiatives, implementing a robust project management system.",
     tag: "",
     image: "/project-images/PROJ08/PROJ08-thumbnail.jpg",
     link: "https://www.youtube.com/embed/4_BwcdMoyxU",

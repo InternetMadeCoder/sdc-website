@@ -9,19 +9,19 @@ import ProjectsCard from "../ui/ProjectsCard";
 import { FaLinkedin } from "react-icons/fa";
 import { SearchContext } from "../Context/SearchContext";
 import Image from "next/image";
+import { FaPlay } from "react-icons/fa"; // Add this import
 
 const Projects = () => {
   const { searchQuery } = useContext(SearchContext);
   const [selectedProject, setSelectedProject] = useState(null);
   const [visibleProjects, setVisibleProjects] = useState(9);
-  const [showDetails, setShowDetails] = useState(false);
   const videoRef = useRef(null); // Ref for video container
   const [activeYear, setActiveYear] = useState("all"); // Add this new state
   const [isAnimating, setIsAnimating] = useState(false); // Add this new state for animation
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const openPopup = (project) => {
     setSelectedProject(project);
-    setShowDetails(false);
   };
 
   const closePopup = () => {
@@ -39,20 +39,6 @@ const Projects = () => {
       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.tag.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  // Scroll to video container when More Info button is clicked
-  const handleMoreInfoClick = () => {
-    setShowDetails(true);
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "center", // Ensures the video is vertically centered
-          inline: "nearest", // Ensures the video is horizontally aligned
-        });
-      }
-    }, 300); // Small delay to allow the popup to load first
-  };
 
   // Convert YouTube short link to embeddable link
   const getEmbedLink = (link) => {
@@ -104,6 +90,10 @@ const Projects = () => {
     }
   };
 
+  const handleVideoClick = () => {
+    setIsPlaying(true);
+  };
+
   return (
     <>
       <div className="px-4 mb-32">
@@ -126,35 +116,22 @@ const Projects = () => {
                   className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 popup-overlay"
                   onClick={handleOutsideClick}
                 >
-                  <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-lg max-w-md md:max-w-3xl lg:max-w-5xl w-full h-auto max-h-[80vh] overflow-auto relative">
+                  <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-lg w-[95%] md:w-[90%] lg:w-[85%] h-[95vh] overflow-auto relative">
                     <button
                       onClick={closePopup}
-                      className="absolute top-2 right-2 text-black-500 hover:text-gray-700 z-20"
+                      className="absolute top-4 right-4 text-black-500 hover:text-gray-700 z-20"
                     >
                       <IoIosCloseCircle className="w-8 h-8" />
                     </button>
 
-                    <div className="flex flex-col items-center gap-4">
-                      <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-center">
+                    <div className="flex flex-col items-center gap-8">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">
                         {selectedProject.title}
                       </h2>
 
-                      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start">
-                        {selectedProject.poster && (
-                          <div className="flex flex-shrink-0">
-                            <Image
-                              src={selectedProject.poster}
-                              width={700}
-                              height={500}
-                              alt="Poster"
-                              priority={true}
-                              className="rounded-md object-contain max-w-full max-h-[500px]"
-                            />
-                          </div>
-                        )}
-
-                        <div className="flex flex-col justify-start">
-                          <ul className="list-disc text-sm sm:text-base space-y-2">
+                      <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start w-full">
+                        <div className="flex flex-col justify-start w-full sm:w-1/3 gap-6">
+                          <ul className="list-disc text-sm sm:text-base md:text-lg space-y-3 flex flex-col flex-wrap">
                             {projectDetails
                               .filter(
                                 (detail) =>
@@ -236,113 +213,133 @@ const Projects = () => {
                               )}
                             </li>
                           </ul>
+
+                          {/* Add instruction text when video is available and not playing */}
+                          {selectedProject.link && !isPlaying && (
+                            <p className="text-[#D34747] dark:text-[#EB9335] font-semibold text-sm md:text-base mt-4 animate-pulse">
+                              Click on the image to watch a video and learn more about the project!
+                            </p>
+                          )}
+
+                          {/* Show description after clicking */}
+                          {isPlaying && (
+                            <p className="text-sm sm:text-base text-justify mt-4">
+                              {selectedProject.description}
+                            </p>
+                          )}
                         </div>
-                      </div>
 
-                      {!showDetails && (
-                        <button
-                          onClick={handleMoreInfoClick}
-                          className="mt-4 bg-black text-white px-6 py-2 text-sm font-semibold rounded-md hover:bg-yellow-400"
-                        >
-                          More Info
-                        </button>
-                      )}
-
-                      {showDetails && (
-                        <>
-                          {selectedProject.link && (
-                            <div
-                              ref={videoRef}
-                              className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] mb-4"
-                            >
+                        <div className="flex flex-shrink-0 w-full sm:w-2/3 justify-center relative">
+                          {selectedProject.link && !isPlaying ? (
+                            <div className="relative group cursor-pointer" onClick={handleVideoClick}>
+                              <Image
+                                src={selectedProject.poster || selectedProject.image}
+                                width={1200}
+                                height={800}
+                                alt="Poster"
+                                priority={true}
+                                className="rounded-md object-contain w-full h-auto max-h-[70vh]"
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity rounded-md">
+                                <FaPlay className="text-white text-4xl" />
+                              </div>
+                            </div>
+                          ) : selectedProject.link && isPlaying ? (
+                            <div className="w-full h-auto aspect-[4/3]"> {/* Added wrapper div with aspect ratio */}
                               <iframe
-                                src={`${getEmbedLink(
-                                  selectedProject.link
-                                )}?autoplay=1`}
+                                src={`${getEmbedLink(selectedProject.link)}?autoplay=1`}
                                 frameBorder="0"
                                 allow="autoplay; encrypted-media"
                                 allowFullScreen
-                                className="w-full h-full rounded-md"
-                              ></iframe>
+                                className="w-full h-full rounded-md object-contain max-h-[70vh]"
+                              />
                             </div>
+                          ) : selectedProject.poster && (
+                            <Image
+                              src={selectedProject.poster}
+                              width={1200}
+                              height={800}
+                              alt="Poster"
+                              priority={true}
+                              className="rounded-md object-contain w-full h-auto max-h-[70vh]"
+                            />
                           )}
-                          <p className="text-sm sm:text-base text-justify mt-4">
-                            {selectedProject.description}
-                          </p>
-                          <div className="flex flex-col items-center gap-4">
-                            <h3 className="font-extrabold text-lg sm:text-xl">
-                              TEAM
-                            </h3>
-                            <div className="flex flex-wrap gap-4 justify-center">
-                              {getFilteredTeamMembers(
-                                selectedProject.project_code
-                              ).map((student, index) => (
-                                <div
-                                  key={index}
-                                  className={`flex flex-col items-center transition-all duration-300 ease-in-out ${
-                                    isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-                                  }`}
-                                  style={{
-                                    transitionDelay: `${index * 50}ms`
-                                  }}
-                                >
-                                  <Image
-                                    src={student.profile_picture}
-                                    width={60}
-                                    height={60}
-                                    alt="Profile Picture"
-                                    priority={true}
-                                    className="w-24 h-24 rounded-full mb-2 object-cover"
-                                  />
-                                  <div className="flex flex-col items-center">
-                                    <Link
-                                      href={student.linkedin}
-                                      target="_blank"
-                                    >
-                                      <h3 className="font-bold text-[12px] lg:text-base flex items-center gap-1 text-center">
-                                        {student.fullName}
-                                        <FaLinkedin />
-                                      </h3>
-                                    </Link>
-                                    <p className="text-[10px] lg:text-sm text-gray-600 text-center">
-                                      {student.Position_in_Team}
-                                    </p>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
+                        </div>
 
-                            {/* Update the year filter buttons */}
-                            <div className="flex gap-2 mt-4">
+                      </div>
+
+                      <div className="flex flex-col items-center gap-4">
+                        <h3 className="font-extrabold text-lg sm:text-xl">
+                          TEAM
+                        </h3>
+                        <div className="flex flex-wrap gap-4 justify-center">
+                          {getFilteredTeamMembers(
+                            selectedProject.project_code
+                          ).map((student, index) => (
+                            <div
+                              key={index}
+                              className={`flex flex-col items-center transition-all duration-300 ease-in-out ${
+                                isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+                              }`}
+                              style={{
+                                transitionDelay: `${index * 50}ms`
+                              }}
+                            >
+                              <Image
+                                src={student.profile_picture}
+                                width={60}
+                                height={60}
+                                alt="Profile Picture"
+                                priority={true}
+                                className="w-24 h-24 rounded-full mb-2 object-cover"
+                              />
+                              <div className="flex flex-col items-center">
+                                <Link
+                                  href={student.linkedin}
+                                  target="_blank"
+                                >
+                                  <h3 className="font-bold text-[12px] lg:text-base flex items-center gap-1 text-center">
+                                    {student.fullName}
+                                    <FaLinkedin />
+                                  </h3>
+                                </Link>
+                                <p className="text-[10px] lg:text-sm text-gray-600 text-center">
+                                  {student.Position_in_Team}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Update the year filter buttons */}
+                        <div className="flex gap-2 mt-4">
+                          <button
+                            onClick={() => handleYearChange("all")}
+                            className={`px-4 py-2 rounded-md text-sm transition-colors duration-300 ${
+                              activeYear === "all"
+                                ? "bg-yellow-400 text-black"
+                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                            }`}
+                          >
+                            All
+                          </button>
+                          {getUniqueYears(selectedProject.project_code).map(
+                            (year) => (
                               <button
-                                onClick={() => handleYearChange("all")}
+                                key={year}
+                                onClick={() => handleYearChange(year)}
                                 className={`px-4 py-2 rounded-md text-sm transition-colors duration-300 ${
-                                  activeYear === "all"
+                                  activeYear === year
                                     ? "bg-yellow-400 text-black"
                                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                 }`}
                               >
-                                All
+                                {year}
                               </button>
-                              {getUniqueYears(selectedProject.project_code).map(
-                                (year) => (
-                                  <button
-                                    key={year}
-                                    onClick={() => handleYearChange(year)}
-                                    className={`px-4 py-2 rounded-md text-sm transition-colors duration-300 ${
-                                      activeYear === year
-                                        ? "bg-yellow-400 text-black"
-                                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                                    }`}
-                                  >
-                                    {year}
-                                  </button>
-                                )
-                              )}
-                            </div>
-                          </div>
-                        </>
-                      )}
+                            )
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
