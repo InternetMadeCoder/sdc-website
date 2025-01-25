@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
                         <div className="bg-gradient-to-br from-indigo-950 via-purple-900 to-blue-950 text-white rounded-2xl p-4 pt-14 h-[200px] flex flex-col items-center shadow-xl hover:shadow-2xl transition-shadow duration-300">
                             <h3 className="font-bold text-xl text-center mb-1">{testimonial.user}</h3>
                             <p className="text-gray-200 text-sm mb-3 text-center">{testimonial.company}</p>
-                            <p className="text-sm text-justify px-3 pb-3 overflow-y-auto">{testimonial.message}</p>
+                            <p className="text-sm text-justify px-3 pb-3 overflow-y-auto scrollbar-hide">{testimonial.message}</p>
                         </div>
                     </div>
                 ))}
