@@ -1,7 +1,7 @@
 export const LINKS_1 = [
     { href: '/', key: 'home', label: 'Home' },
     { href: '/about-us', key: 'about_us', label: 'About Us' },
-    { href: '/portfolio', key: 'projects', label: 'Projects' },
+    { href: '/projects', key: 'projects', label: 'Projects' },
     { href: '/blogs', key: 'blog ', label: 'Blog ' },
 ];
 
