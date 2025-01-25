@@ -36,7 +36,7 @@ const Footer = () => {
                 <div className="flex flex-col mt-4 lg:mt-0 lg:items-start">
                     <span className="text-lg font-bold">Socials</span>
                     <div className="flex gap-2 mt-1">
-                        <Link href={"https://www.linkedin.com/in/sdc-cse-department-419007326/u"}><FaLinkedin className="w-6 h-6" /></Link>
+                        <Link href={"https://www.linkedin.com/in/software-development-centre-cse-department-manipal-university-jaipur-419007326/"}><FaLinkedin className="w-6 h-6" /></Link>
                         <Link href={"#"}><FaSquareXTwitter className="w-6 h-6" /></Link>
                         <Link href={"#"}><FaFacebookSquare className="w-6 h-6" /></Link>
                     </div>
