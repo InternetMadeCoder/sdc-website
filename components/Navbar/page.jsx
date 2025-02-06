@@ -9,9 +9,11 @@ import { nav_links } from "./constants";
 import { projects } from "./constants";
 import { FaSearch } from "react-icons/fa";
 import { SearchContext } from "../Context/SearchContext";
+import { usePathname } from 'next/navigation'; // Add this import
 
 const Navbar = () => {
-    const {searchQuery, handleSearch} = useContext(SearchContext);
+    const { searchQuery, handleSearch, clearSearch } = useContext(SearchContext);
+    const pathname = usePathname(); // Add this line to get current path
   const [isDarkBg, setIsDarkBg] = useState(false);
   const [isBlackBg, setIsBlackBg] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -80,10 +82,45 @@ const Navbar = () => {
 //   );
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      handleSearch(searchQuery); // Use context's handleSearch
-      setShowSearchTab(false); // Optionally hide the search tab after search
+      handleSearch(e.target.value); // Use context's handleSearch
+      // Don't hide search tab if there's a query
+      if (!e.target.value) {
+        setShowSearchTab(false);
+      }
     }
   };
+
+  const handleSearchClick = () => {
+    if (showSearchTab && !searchQuery) {
+      // Only hide if there's no query
+      setShowSearchTab(false);
+    } else {
+      setShowSearchTab(true);
+    }
+  };
+
+  // Initialize showSearchTab based on whether there's a search query
+  useEffect(() => {
+    setShowSearchTab(!!searchQuery);
+  }, [searchQuery]);
+
+  // Clear search when navigating away from projects page
+  useEffect(() => {
+    if (pathname !== '/projects') {
+      clearSearch();
+      setShowSearchTab(false);
+    }
+  }, [pathname]);
+
+  // Clear search on page refresh
+  useEffect(() => {
+    clearSearch();
+    setShowSearchTab(false);
+  }, []);
+
+  // Only show search on portfolio page
+  const showSearchFeature = pathname === '/projects';
+
   return (
     <nav
       className={`px-4 py-3 lg:px-16 z-40 fixed w-full ${
@@ -111,24 +148,26 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {showSearchTab && (
-             <input
-             className="px-2 w-64 focus:outline-none rounded-lg placeholder:text-[#a9a9a9] text-[#000000]"
-             type="text"
-             placeholder="Search"
-             value={searchQuery}
-             onChange={(e) => handleSearch(e.target.value)} // Use context's handleSearch
-             onKeyDown={handleEnter}
-           />
+          {showSearchFeature && (
+            <>
+              {showSearchTab && (
+                <input
+                  className="px-2 w-64 focus:outline-none rounded-lg placeholder:text-[#a9a9a9] text-[#000000]"
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)} // Use context's handleSearch
+                  onKeyDown={handleEnter}
+                />
+              )}
+              <div className="bg-yellow-400 hover:bg-orange-500 flex justify-center items-center w-7 h-7 rounded-full cursor-pointer">
+                <FaSearch
+                  className=" hover:text-black text-white w-4 h-4"
+                  onClick={handleSearchClick}
+                />
+              </div>
+            </>
           )}
-          <div className="bg-yellow-400 hover:bg-orange-500 flex justify-center items-center w-7 h-7 rounded-full cursor-pointer">
-            <FaSearch
-              className=" hover:text-black text-white w-4 h-4"
-              onClick={() => {
-                setShowSearchTab(!showSearchTab);
-              }}
-            />
-          </div>
         </ul>
         <div className="flex items-center lg:hidden">
           <button
