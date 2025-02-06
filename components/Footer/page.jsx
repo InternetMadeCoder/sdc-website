@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedin, FaFacebookSquare, FaRegCopyright } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaRegCopyright } from "react-icons/fa";
+// Remove unused icon imports
+// import { FaSquareXTwitter } from "react-icons/fa6";
+// import { FaFacebookSquare } from "react-icons/fa";
 import { LINKS_1, LINKS_2, LINKS_3 } from "./constants";
 
 const year = new Date().getFullYear();
@@ -36,31 +38,23 @@ const Footer = () => {
                 <div className="flex flex-col mt-4 lg:mt-0 lg:items-start">
                     <span className="text-lg font-bold">Socials</span>
                     <div className="flex gap-2 mt-1">
-                        <Link href={"https://www.linkedin.com/in/software-development-centre-cse-department-manipal-university-jaipur-419007326/"}><FaLinkedin className="w-6 h-6" /></Link>
-                        <Link href={"#"}><FaSquareXTwitter className="w-6 h-6" /></Link>
-                        <Link href={"#"}><FaFacebookSquare className="w-6 h-6" /></Link>
+                        <Link href={"https://www.linkedin.com/in/software-development-centre-cse-department-manipal-university-jaipur-419007326/"}>
+                            <FaLinkedin className="w-6 h-6" />
+                        </Link>
+                        {/* Remove Twitter and Facebook links */}
                     </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 mt-4 text-xs gap-2 sm:grid-cols-2 lg:grid-cols-3 lg:items-center">
+            <div className="grid grid-cols-2 mt-4 text-xs gap-2 lg:items-center">
                 <div className="flex gap-1 items-center">
-                    <span>{year}</span>
+                    <span>2025</span>
                     <FaRegCopyright />
                     <span>All rights reserved.</span>
                 </div>
-                <div>
+                <div className="text-right">
                     <span>SDC - Manipal University Jaipur</span>
                 </div>
-                <ul className="flex gap-4 lg:justify-between">
-                    {LINKS_3.map((link) => (
-                        <li key={link.key}>
-                            <Link href={link.href} className="hover:underline">
-                                {link.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
             </div>
         </footer>
     )

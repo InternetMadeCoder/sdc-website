@@ -6,12 +6,14 @@ export const LINKS_1 = [
 ];
 
 export const LINKS_2 = [
-    { href: '/events', key: 'events', label: 'Events' },
+    // Comment out Events section
+    // { href: '/events', key: 'events', label: 'Events' },
     { href: '/our-team', key: 'our_team', label: 'Our Team' },
     { href: '/contact-us', key: 'contact_us', label: 'Contact Us' },
 ];
 
 export const LINKS_3 = [
-    { href: '#', key: 'privacy_policy', label: 'Privacy Policy' },
-    { href: '#', key: 'terms_&_conditions', label: 'Terms & Conditions' },
+    // Comment out Privacy Policy and Terms & Conditions
+    // { href: '#', key: 'privacy_policy', label: 'Privacy Policy' },
+    // { href: '#', key: 'terms_&_conditions', label: 'Terms & Conditions' },
 ];
