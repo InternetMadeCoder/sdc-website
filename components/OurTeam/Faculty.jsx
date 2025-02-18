@@ -23,19 +23,23 @@ const FacultySection = ({ title, members, direction = "left" }) => {
   };
 
   // Special handling for faculty coordinators
-  const isFacultyCoordinators = title === "Faculty Coordinators";
+  const isFacultyCoordinators = title === "SDC Coordinators";
   const firstRow = isFacultyCoordinators ? members.slice(0, 3) : members;
   const secondRow = isFacultyCoordinators ? members.slice(3) : [];
 
-  const gridColsClass =
-    members.length <= 2
+  const gridColsClass = () => {
+    if (title === "Advisors") {
+      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"; // Show 4 columns for advisors on large screens
+    }
+    return members.length <= 2
       ? "grid-cols-1 sm:grid-cols-2"
       : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+  };
 
-  // Add conditional gap classes based on section type
+  // Adjust gap classes for advisors to be smaller
   const getGapClasses = () => {
     if (title === "Advisors") {
-      return "gap-12 lg:gap-24"; // Reduced gaps for advisors
+      return "gap-8 lg:gap-12"; // Reduced gaps for advisors
     }
     return "gap-20 lg:gap-32"; // Keep existing gaps for other sections
   };
@@ -84,7 +88,7 @@ const FacultySection = ({ title, members, direction = "left" }) => {
           {/* Reduced from gap-24 */}
           {/* First row */}
           <div
-            className={`${gridColsClass} ${getGapClasses()} max-w-7xl mx-auto grid place-items-center`}
+            className={`${gridColsClass()} ${getGapClasses()} max-w-full mx-auto grid place-items-center`}
           >
             {" "}
             {/* Increased from max-w-5xl */}
@@ -94,7 +98,9 @@ const FacultySection = ({ title, members, direction = "left" }) => {
           </div>
           {/* Second row - only for faculty coordinators */}
           {isFacultyCoordinators && secondRow.length > 0 && (
-            <div className={`grid grid-cols-1 sm:grid-cols-2 ${getGapClasses()} max-w-7xl mx-auto place-items-center`}>
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-2 ${getGapClasses()} max-w-7xl mx-auto place-items-center`}
+            >
               {" "}
               {/* Increased from max-w-3xl */}
               {secondRow.map((person) => (
@@ -116,12 +122,12 @@ const Faculty = () => {
         {" "}
         {/* Reduced from px-8 lg:px-32 */}
         <FacultySection
-          title="Directors"
+          title="SDC Directors"
           members={faculty.directors}
           direction="left"
         />
         <FacultySection
-          title="Faculty Coordinators"
+          title="SDC Coordinators"
           members={faculty.facultyCoordinators}
           direction="right"
         />

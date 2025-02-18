@@ -18,7 +18,7 @@ const Students = () => {
 
     return (
         <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center">Students</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center">Student Team</h2>
             <div className="flex justify-center mt-8">
                 <select className="p-2 w-60 lg:w-[512px] border-b-2 border-black focus:outline-none" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
                     {uniqueYears.map((year, index) => (
