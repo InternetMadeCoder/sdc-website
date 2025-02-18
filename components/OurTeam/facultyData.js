@@ -3,7 +3,7 @@ export const faculty = {
     {
       id: 1,
       fullName: "Dr. Neha Chaudhary",
-      designation: "Executive Director, SDC & Head of Department",
+      designation: "Head of Department",
       email: "chaudhary.neha@jaipur.manipal.edu",
       contact_number: "+91 9785500056",
       linkedin: "https://www.linkedin.com/in/dr-neha-chaudhary-2b02bb31/",
@@ -12,7 +12,7 @@ export const faculty = {
     {
       id: 2,
       fullName: "Dr Amit Garg",
-      designation: "Director, SDC & Associate Professor",
+      designation: "Associate Professor",
       email: "amit.garg@jaipur.manipal.edu",
       contact_number: "+91 9897260563",
       linkedin: "https://www.linkedin.com/in/dr-amit-garg-87461637/",
