@@ -68,6 +68,15 @@ export const faculty = {
   ],
   advisors: [
     {
+      id: 11,
+      fullName: "Dr C S Lamba",
+      designation: "Associate Dean, School of CSE (CSE & IT)",
+      email: "cs.lamba@jaipur.manipal.edu",
+      contact_number: "+91 9928000040",
+      linkedin: "https://www.linkedin.com/in/professor-dr-c-s-lamba-b489bba0/",
+      profile_picture: "/profile-images/faculty/CS-Lamba.jpg",
+    },
+    {
       id: 8,
       fullName: "Professor (Dr.) Sandeep Chaurasia",
       designation: "Director, Training & Placement CSE",
@@ -93,15 +102,6 @@ export const faculty = {
       contact_number: "+91 9799969068",
       linkedin: "https://www.linkedin.com/in/mahesh-jangid/",
       profile_picture: "/profile-images/faculty/Mahesh-Jangid.jpg",
-    },
-    {
-      id: 11,
-      fullName: "Dr C S Lamba",
-      designation: "Associate Dean, School of CSE (CSE & IT)",
-      email: "cs.lamba@jaipur.manipal.edu",
-      contact_number: "+91 9928000040",
-      linkedin: "https://www.linkedin.com/in/professor-dr-c-s-lamba-b489bba0/",
-      profile_picture: "/profile-images/faculty/CS-Lamba.jpg",
     },
   ],
 };

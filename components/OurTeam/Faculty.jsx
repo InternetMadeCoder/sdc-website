@@ -119,21 +119,19 @@ const Faculty = () => {
     <div className="flex flex-col gap-16 items-center">
       <AnimatedTitle>Our Driving Force</AnimatedTitle>
       <div className="flex flex-col gap-16 w-full px-4 lg:px-16">
-        {" "}
-        {/* Reduced from px-8 lg:px-32 */}
+        <FacultySection
+          title="Advisors"
+          members={faculty.advisors}
+          direction="left"
+        />
         <FacultySection
           title="SDC Directors"
           members={faculty.directors}
-          direction="left"
+          direction="right"
         />
         <FacultySection
           title="SDC Coordinators"
           members={faculty.facultyCoordinators}
-          direction="right"
-        />
-        <FacultySection
-          title="Advisors"
-          members={faculty.advisors}
           direction="left"
         />
       </div>
