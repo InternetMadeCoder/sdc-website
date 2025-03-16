@@ -3,8 +3,7 @@
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoMdMail } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
-import React, { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useState, useEffect } from "react";
 
 export default function ContactUs() {
   const [name, setName] = useState("");
@@ -14,8 +13,6 @@ export default function ContactUs() {
   const [messageSent, setMessageSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showContent, setShowContent] = useState(false);
-
-  const form = useRef();
 
   useEffect(() => {
     setShowContent(true);
@@ -36,7 +33,42 @@ export default function ContactUs() {
     return Object.keys(formErrors).length === 0;
   };
 
-  const sendEmail = async (e) => {
+  const sendToSheetDB = async (formData) => {
+    const SHEETDB_URL = "https://sheetdb.io/api/v1/hlkhqadhkn3wx";
+
+    try {
+      const response = await fetch(SHEETDB_URL, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              Name: formData.name,
+              Email: formData.email,
+              Message: formData.message,
+              Timestamp: new Date().toLocaleString(),
+            },
+          ],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save to spreadsheet");
+      }
+
+      const json = await response.json();
+      console.log("SheetDB Response:", json);
+      return true;
+    } catch (error) {
+      console.error("SheetDB Error:", error);
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
@@ -44,23 +76,26 @@ export default function ContactUs() {
     setIsSubmitting(true);
 
     try {
-      await emailjs.sendForm(
-        "service_300pw03",
-        "template_uav19wd",
-        form.current,
-        {
-          publicKey: "didEHn7X6RkM9mDy4",
-        }
-      );
+      const result = await sendToSheetDB({
+        name,
+        email,
+        message,
+      });
 
-      setMessageSent(true);
-      setName("");
-      setEmail("");
-      setMessage("");
-
-      setTimeout(() => setMessageSent(false), 5000);
+      if (result) {
+        setMessageSent(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setTimeout(() => setMessageSent(false), 5000);
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
-      console.error("Failed to send message:", error.text);
+      console.error("Failed to send message:", error);
+      alert(
+        "Failed to send message. Please try again later or contact us directly at sdc@jaipur.manipal.edu"
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -188,7 +223,7 @@ export default function ContactUs() {
                 drop us a message.
               </p>
 
-              <form ref={form} onSubmit={sendEmail} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
