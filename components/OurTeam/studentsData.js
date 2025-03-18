@@ -57,6 +57,16 @@ export const students = [
     profile_picture: "/profile-images/students/Gayathri-Ravindran.jpeg",
   },
   {
+    id: 78,
+    fullName: "Abhiman Panwar",
+    year: "2025",
+    project_code: "PROJ08",
+    Position_in_Team: "Student Developer",
+    Role: "",
+    linkedin: "https://www.linkedin.com/in/abhiman-panwar-272aa7228/",
+    profile_picture: "/profile-images/students/Abhiman-Panwar.jpeg",
+  },
+  {
     id: 60,
     fullName: "Lakshya Varshney",
     year: "2025",
