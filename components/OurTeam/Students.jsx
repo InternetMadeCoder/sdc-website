@@ -146,6 +146,42 @@ const Students = () => {
           </motion.div>
         </div>
       </div>
+      {/* Media Team Section */}
+      <div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-16">
+          Media Team
+        </h2>
+        <div className="flex justify-center gap-16 lg:gap-32">
+          {[1, 2, 3].map((index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="flex flex-col items-center"
+            >
+              <Image
+                src="/profile-images/students/blank-pfp.png"
+                width={150}
+                height={150}
+                alt="Profile Picture"
+                priority={true}
+                className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full mb-4 object-cover"
+              />
+              <Link href="#" target="_blank">
+                <h3 className="font-bold text-base lg:text-lg flex items-center gap-1 text-center">
+                  Position Open
+                  <FaLinkedin />
+                </h3>
+              </Link>
+              <p className="text-sm lg:text-base text-center font-medium">
+                Media Team Member
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
       {/* Students Section with Year Toggle */}
       <div>
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-normal text-gray-800 mb-12">
