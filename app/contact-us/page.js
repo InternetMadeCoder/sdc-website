@@ -104,7 +104,7 @@ export default function ContactUs() {
   return (
     <div className="overflow-hidden bg-[#eaeaea] white-section">
       {/* Hero Section remains the same */}
-      <div className="bg-[url(/bg/contact-bg.webp)] bg-cover h-[512px] text-white flex flex-col justify-center gap-8 px-4 xl:px-48 lg:px-48 md:px-32 sm:pr-8 sm:pl-32">
+      <div className="bg-[url(/bg/contact-us-bg-manipal.jpg)] bg-cover h-[512px] text-white flex flex-col justify-center gap-8 px-4 xl:px-48 lg:px-48 md:px-32 sm:pr-8 sm:pl-32">
         <h1
           className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold opacity-0 ${
             showContent ? "animate-slide-down" : ""
@@ -116,11 +116,12 @@ export default function ContactUs() {
           Contact Us
         </h1>
         <p
-          className={`text-base md:text-lg lg:text-xl lg:w-3/4 opacity-0 ${
+          className={`text-base md:text-lg lg:text-xl lg:w-3/4 opacity-0 backdrop-blur-[2px] bg-black/10 p-4 ${
             showContent ? "animate-slide-up" : ""
           }`}
           style={{
             animation: showContent ? "slideUp 0.8s ease 0.3s forwards" : "none",
+            textShadow: "0 2px 4px rgba(0,0,0,0.2)",
           }}
         >
           Get In Touch! We&apos;d love to hear from you! If you have any
