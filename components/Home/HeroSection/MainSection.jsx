@@ -39,7 +39,7 @@ const MainSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <Button className="mt-4" link="/our-team" title="READ MORE" />
+                    <Button className="mt-4" link="/projects" title="READ MORE" />
                 </motion.div>
                 {/* <div className='flex'>
                     {projects.slice(4, 9).map((display) => (
