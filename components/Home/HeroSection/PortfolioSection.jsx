@@ -33,7 +33,10 @@ const PortfolioSection = () => {
                   </p>
                 </div>
                 <Link
-                  href={`/projects/${display.id}`}
+                  href={{
+                    pathname: "/projects",
+                    query: { openProject: display.id },
+                  }}
                   className="text-sm mt-4 underline font-medium self-end"
                 >
                   Read more →

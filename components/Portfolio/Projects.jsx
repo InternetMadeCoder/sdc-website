@@ -10,6 +10,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { SearchContext } from "../Context/SearchContext";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa"; // Add this import
+import { useSearchParams } from "next/navigation";
 
 const Projects = () => {
   const { searchQuery } = useContext(SearchContext);
@@ -19,6 +20,7 @@ const Projects = () => {
   const [activeYear, setActiveYear] = useState("all"); // Add this new state
   const [isAnimating, setIsAnimating] = useState(false); // Add this new state for animation
   const [isPlaying, setIsPlaying] = useState(false);
+  const searchParams = useSearchParams();
 
   const openPopup = (project) => {
     setSelectedProject(project);
@@ -85,7 +87,7 @@ const Projects = () => {
   // Add this new function to handle outside clicks
   const handleOutsideClick = (e) => {
     // Check if the click is outside the popup content
-    if (e.target.classList.contains('popup-overlay')) {
+    if (e.target.classList.contains("popup-overlay")) {
       closePopup();
     }
   };
@@ -93,6 +95,17 @@ const Projects = () => {
   const handleVideoClick = () => {
     setIsPlaying(true);
   };
+
+  useEffect(() => {
+    // Check for project ID in URL query
+    const projectId = searchParams.get("openProject");
+    if (projectId) {
+      const projectToOpen = projects.find((p) => p.id === parseInt(projectId));
+      if (projectToOpen) {
+        openPopup(projectToOpen);
+      }
+    }
+  }, [searchParams]);
 
   return (
     <>
@@ -112,7 +125,7 @@ const Projects = () => {
 
             {selectedProject && (
               <Popup>
-                <div 
+                <div
                   className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 popup-overlay"
                   onClick={handleOutsideClick}
                 >
@@ -127,12 +140,13 @@ const Projects = () => {
                     <div className="flex flex-col items-center gap-8">
                       <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start w-full">
                         {/* Left Column */}
-                        <div className="flex flex-col justify-start w-full sm:w-1/3 h-[400px]"> {/* Added fixed height */}
+                        <div className="flex flex-col justify-start w-full sm:w-1/3 h-[400px]">
+                          {" "}
+                          {/* Added fixed height */}
                           {/* Title */}
                           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-black mb-4">
                             {selectedProject.title}
                           </h2>
-
                           {/* Flex container for bulletpoints and description */}
                           <div className="flex flex-col h-full">
                             {/* Project Details */}
@@ -148,8 +162,13 @@ const Projects = () => {
                                         detail.Role === "Tech Stack")
                                   )
                                   .map((detail, index) => (
-                                    <li key={index} className="list-none text-justify">
-                                      <span className="font-bold text-[#4C1D95]"> {/* Changed to dark purple */}
+                                    <li
+                                      key={index}
+                                      className="list-none text-justify"
+                                    >
+                                      <span className="font-bold text-[#4C1D95]">
+                                        {" "}
+                                        {/* Changed to dark purple */}
                                         {detail.Role}:
                                       </span>{" "}
                                       {detail.BasicSkillsRequired || "N/A"}
@@ -159,13 +178,19 @@ const Projects = () => {
                                   <span className="font-bold text-[#4C1D95]">
                                     Faculty Mentor:
                                   </span>{" "}
-                                  {getMentorRole(selectedProject.project_code, "Faculty Mentor")}
+                                  {getMentorRole(
+                                    selectedProject.project_code,
+                                    "Faculty Mentor"
+                                  )}
                                 </li>
                                 <li className="list-none text-justify">
                                   <span className="font-bold text-[#4C1D95]">
                                     Industry Mentor:
                                   </span>{" "}
-                                  {getMentorRole(selectedProject.project_code, "Industry Expert")}
+                                  {getMentorRole(
+                                    selectedProject.project_code,
+                                    "Industry Expert"
+                                  )}
                                 </li>
                               </ul>
                             </div>
@@ -173,7 +198,8 @@ const Projects = () => {
                             {/* Video instruction text - moved up and size increased */}
                             {selectedProject.link && !isPlaying && (
                               <p className="text-[#D34747] text-sm sm:text-base mt-4 animate-pulse">
-                                Click on the image to watch a video and learn more!
+                                Click on the image to watch a video and learn
+                                more!
                               </p>
                             )}
 
@@ -189,11 +215,19 @@ const Projects = () => {
                         </div>
 
                         {/* Right Column - Video/Image Section */}
-                        <div className="flex flex-col flex-1 h-[400px]"> {/* Added fixed height */}
+                        <div className="flex flex-col flex-1 h-[400px]">
+                          {" "}
+                          {/* Added fixed height */}
                           {selectedProject.link && !isPlaying ? (
-                            <div className="relative group cursor-pointer w-full max-w-[800px] h-[400px] mx-auto" onClick={handleVideoClick}>
+                            <div
+                              className="relative group cursor-pointer w-full max-w-[800px] h-[400px] mx-auto"
+                              onClick={handleVideoClick}
+                            >
                               <Image
-                                src={selectedProject.poster || selectedProject.image}
+                                src={
+                                  selectedProject.poster ||
+                                  selectedProject.image
+                                }
                                 fill
                                 alt="Poster"
                                 priority={true}
@@ -206,26 +240,29 @@ const Projects = () => {
                           ) : selectedProject.link && isPlaying ? (
                             <div className="w-full max-w-[800px] h-[400px] mx-auto">
                               <iframe
-                                src={`${getEmbedLink(selectedProject.link)}?autoplay=1`}
+                                src={`${getEmbedLink(
+                                  selectedProject.link
+                                )}?autoplay=1`}
                                 frameBorder="0"
                                 allow="autoplay; encrypted-media"
                                 allowFullScreen
                                 className="w-full h-full rounded-md"
                               />
                             </div>
-                          ) : selectedProject.poster && (
-                            <div className="w-full max-w-[800px] h-[400px] mx-auto relative">
-                              <Image
-                                src={selectedProject.poster}
-                                fill
-                                alt="Poster"
-                                priority={true}
-                                className="rounded-md object-contain"
-                              />
-                            </div>
+                          ) : (
+                            selectedProject.poster && (
+                              <div className="w-full max-w-[800px] h-[400px] mx-auto relative">
+                                <Image
+                                  src={selectedProject.poster}
+                                  fill
+                                  alt="Poster"
+                                  priority={true}
+                                  className="rounded-md object-contain"
+                                />
+                              </div>
+                            )
                           )}
                         </div>
-
                       </div>
 
                       <div className="flex flex-col items-center gap-4">
@@ -239,10 +276,12 @@ const Projects = () => {
                             <div
                               key={index}
                               className={`flex flex-col items-center transition-all duration-300 ease-in-out ${
-                                isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+                                isAnimating
+                                  ? "opacity-0 scale-95"
+                                  : "opacity-100 scale-100"
                               }`}
                               style={{
-                                transitionDelay: `${index * 50}ms`
+                                transitionDelay: `${index * 50}ms`,
                               }}
                             >
                               <Image
@@ -254,10 +293,7 @@ const Projects = () => {
                                 className="w-24 h-24 rounded-full mb-2 object-cover"
                               />
                               <div className="flex flex-col items-center">
-                                <Link
-                                  href={student.linkedin}
-                                  target="_blank"
-                                >
+                                <Link href={student.linkedin} target="_blank">
                                   <h3 className="font-bold text-[12px] lg:text-base flex items-center gap-1 text-center">
                                     {student.fullName}
                                     <FaLinkedin />
