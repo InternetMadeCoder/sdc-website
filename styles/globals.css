@@ -17,3 +17,46 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but maintain functionality */
+.hide-scrollbar {
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+.hide-scrollbar:active {
+  cursor: grabbing;
+}
+
+/* Remove or comment out the previous img filter styles */
+/* img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.5s ease;
+}
+
+img:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+} */
+
+.gallery-image {
+  transition: all 0.7s ease-in-out;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}

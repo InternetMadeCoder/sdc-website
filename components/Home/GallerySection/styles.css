@@ -1,0 +1,104 @@
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .film-strip-container {
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #1a1a1a;
+    padding: 3rem 0; 
+    margin: 0;
+    position: relative;
+  }
+  
+  .film-strip {
+    display: flex;
+    gap: 32px; 
+    width: max-content;
+    animation: scroll 40s linear infinite; 
+    padding: 0 2rem; 
+  }
+  
+  .film-strip:hover {
+    animation-play-state: paused;
+  }
+  
+  .film-frame {
+    flex-shrink: 0;
+    width: 500px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .film-frame:hover {
+    /* Remove the transform: scale(1.05) */
+  }
+  
+  /* Filmstrip Hole Design */
+.film-holes {
+    display: flex;
+    justify-content: space-evenly; 
+    position: absolute;
+    width: 100%;
+    height: 20px;
+  }
+  
+  .film-hole {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 4px;
+  }
+  
+  .top-holes {
+    top: 0.75rem; 
+  }
+  
+  .bottom-holes {
+    bottom: 0.75rem; 
+  }
+  
+  /* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .film-strip {
+      gap: 12px;
+    }
+  
+    .film-frame {
+      width: 300px; 
+      height: 200px; 
+    }
+  
+    .film-strip-container {
+      padding: 1.5rem 0; 
+    }
+  }
+
+  /* Mobile adjustments for film holes */
+@media (max-width: 768px) {
+    .film-holes {
+      height: 12px;
+    }
+  
+    .film-hole {
+      width: 10px;
+      height: 10px;
+    }
+  
+    .top-holes {
+      top: 0.4rem;
+    }
+  
+    .bottom-holes {
+      bottom: 0.4rem;
+    }
+  }
