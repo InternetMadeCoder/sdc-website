@@ -4,6 +4,7 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoMdMail } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
 import React, { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactUs() {
   const [name, setName] = useState("");
@@ -68,6 +69,30 @@ export default function ContactUs() {
     }
   };
 
+  const sendEmail = async (formData) => {
+    try {
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          to_name: "SDC Team",
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      if (response.status === 200) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      return false;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -76,13 +101,13 @@ export default function ContactUs() {
     setIsSubmitting(true);
 
     try {
-      const result = await sendToSheetDB({
-        name,
-        email,
-        message,
-      });
+      // Send to both SheetDB and EmailJS
+      const [sheetDBResult, emailResult] = await Promise.all([
+        sendToSheetDB({ name, email, message }),
+        sendEmail({ name, email, message }),
+      ]);
 
-      if (result) {
+      if (sheetDBResult && emailResult) {
         setMessageSent(true);
         setName("");
         setEmail("");
