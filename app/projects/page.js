@@ -74,7 +74,7 @@ export default function Portfolio() {
             PORTFOLIO
           </h1>
           <h3 className="mt-2 text-xl mb-20 sm:text-2xl md:text-3xl lg:text-4xl z-40 ">
-            Experience our students innovative tech solutions and impactful projects.
+          Discover innovative tech solutions and impactful projects created by our skilled students.
           </h3>
         </motion.div>
 
