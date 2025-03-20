@@ -29,7 +29,8 @@ const FacultySection = ({ title, members, direction = "left" }) => {
 
   const gridColsClass = () => {
     if (title === "Advisors") {
-      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"; // Show 4 columns for advisors on large screens
+      // Changed to 3 columns and added better centering classes
+      return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center max-w-4xl";
     }
     return members.length <= 2
       ? "grid-cols-1 sm:grid-cols-2"
@@ -73,7 +74,7 @@ const FacultySection = ({ title, members, direction = "left" }) => {
 
   return (
     <AnimatedSection direction={direction}>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 items-center w-full">
         <h3 className="text-xl sm:text-2xl md:text-3xl text-center font-bold relative inline-block mx-auto">
           <span className="relative">
             {title}
@@ -83,12 +84,12 @@ const FacultySection = ({ title, members, direction = "left" }) => {
             {title}
           </span>
         </h3>
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16 w-full items-center">
           {" "}
           {/* Reduced from gap-24 */}
           {/* First row */}
           <div
-            className={`${gridColsClass()} ${getGapClasses()} max-w-full mx-auto grid place-items-center`}
+            className={`${gridColsClass()} ${getGapClasses()} grid mx-auto place-items-center`}
           >
             {" "}
             {/* Increased from max-w-5xl */}
