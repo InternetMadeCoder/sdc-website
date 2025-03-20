@@ -21,15 +21,15 @@ const LeadershipCard = ({ person, index }) => (
       height={150}
       alt="Profile Picture"
       priority={true}
-      className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full mb-4 object-cover"
+      className="w-16 h-16 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full mb-4 object-cover"
     />
     <Link href={person.linkedin} target="_blank">
-      <h3 className="font-bold text-base lg:text-lg flex items-center gap-1 text-center">
+      <h3 className="font-bold text-[12px] md:text-lg lg:text-xl flex items-center gap-1 text-center">
         {person.fullName}
         <FaLinkedin />
       </h3>
     </Link>
-    <p className="text-sm lg:text-base text-center font-medium">
+    <p className="text-[10px] md:text-base lg:text-lg text-center">
       {person.Role}
     </p>
   </motion.div>
@@ -72,7 +72,7 @@ const Students = () => {
       : students.filter((student) => student.year === selectedYear);
 
   return (
-    <div className="flex flex-col gap-32">
+    <div className="flex flex-col gap-16 md:gap-32">
       {" "}
       {/* Increased gap between sections */}
       <div>
@@ -81,14 +81,14 @@ const Students = () => {
         </h2>
 
         {/* Leadership Section with Year Toggle */}
-        <div className="mt-16">
-          <div className="flex justify-center gap-4 mb-8">
+        <div className="mt-8 md:mt-16">
+          <div className="flex justify-center gap-4 mb-6 md:mb-8">
             <div className="bg-white/30 p-1 rounded-full shadow-lg backdrop-blur-sm">
               {["2024", "2025"].map((year) => (
                 <button
                   key={year}
                   onClick={() => setLeadershipYear(year)}
-                  className={`px-8 py-2 rounded-full transition-all duration-300 ease-in-out
+                  className={`px-4 sm:px-8 py-2 rounded-full transition-all duration-300 ease-in-out
                     ${
                       leadershipYear === year
                         ? "bg-gradient-to-r from-[#D34747] to-[#FF8370] text-white shadow-md transform scale-105"
@@ -108,7 +108,7 @@ const Students = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <div className="flex justify-center gap-16 lg:gap-32">
+            <div className="flex justify-center gap-8 sm:gap-16 lg:gap-32">
               {leadershipYear === "2024" ? (
                 <>
                   <LeadershipCard
@@ -147,11 +147,11 @@ const Students = () => {
         </div>
       </div>
       {/* Media Team Section */}
-      <div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-16">
+      <div className="flex flex-col gap-6 md:gap-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold">
           Media Team
         </h2>
-        <div className="flex justify-center gap-16 lg:gap-32">
+        <div className="flex justify-center gap-8 sm:gap-16 lg:gap-32">
           {[1, 2, 3].map((index) => (
             <motion.div
               key={index}
@@ -167,15 +167,15 @@ const Students = () => {
                 height={150}
                 alt="Profile Picture"
                 priority={true}
-                className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full mb-4 object-cover"
+                className="w-16 h-16 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full mb-4 object-cover"
               />
               <Link href="#" target="_blank">
-                <h3 className="font-bold text-base lg:text-lg flex items-center gap-1 text-center">
+                <h3 className="font-bold text-[12px] md:text-lg lg:text-xl flex items-center gap-1 text-center">
                   Position Open
                   <FaLinkedin />
                 </h3>
               </Link>
-              <p className="text-sm lg:text-base text-center font-medium">
+              <p className="text-[10px] md:text-base lg:text-lg text-center font-medium">
                 Media Team Member
               </p>
             </motion.div>
@@ -184,16 +184,16 @@ const Students = () => {
       </div>
       {/* Students Section with Year Toggle */}
       <div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-normal text-gray-800 mb-12">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-normal text-gray-800 mb-6 md:mb-12">
           All Students
         </h2>
-        <div className="flex justify-center gap-4 mb-16">
+        <div className="flex justify-center gap-4 mb-8 md:mb-16">
           <div className="bg-white/30 p-1 rounded-full shadow-lg backdrop-blur-sm">
             {uniqueYears.map((year) => (
               <button
                 key={year}
                 onClick={() => setSelectedYear(year)}
-                className={`px-8 py-2 rounded-full transition-all duration-300 ease-in-out
+                className={`px-4 sm:px-8 py-2 rounded-full transition-all duration-300 ease-in-out
                   ${
                     selectedYear === year
                       ? "bg-gradient-to-r from-[#D34747] to-[#FF8370] text-white shadow-md transform scale-105"
