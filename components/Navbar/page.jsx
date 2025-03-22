@@ -141,11 +141,19 @@ const Navbar = () => {
             className="w-24"
           />
         </Link>
-        <ul className="hidden lg:flex gap-16 text-base">
+        <ul className="hidden lg:flex gap-16 text-base items-center">
           {nav_links.map((link) => (
-            <Link key={link.key} href={link.href} className="hover:underline">
-              {link.label}
-            </Link>
+            link.key === 'join_sdc' ? (
+              <Link key={link.key} href={link.href}>
+                <button className="px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white font-semibold transform hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:shadow-[0_0_25px_rgba(249,115,22,0.5)]">
+                  {link.label}
+                </button>
+              </Link>
+            ) : (
+              <Link key={link.key} href={link.href} className="hover:underline">
+                {link.label}
+              </Link>
+            )
           ))}
 
           {showSearchFeature && (
@@ -200,7 +208,11 @@ const Navbar = () => {
                     onClick={toggleMobileMenu}
                     key={link.key}
                     href={link.href}
-                    className="text-lg font-semibold hover:underline"
+                    className={`text-lg font-semibold hover:underline ${
+                      link.key === 'join_sdc' ? 
+                      'inline-block px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white transform hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:shadow-[0_0_25px_rgba(249,115,22,0.5)]' : 
+                      ''
+                    }`}
                   >
                     {link.label}
                   </Link>
