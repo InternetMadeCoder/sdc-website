@@ -8,18 +8,18 @@ export const studentLeadership = {
   },
   coordinators: [
     {
-      fullName: "Position Open",
-      year: "",
+      fullName: "Devang Aswani",
+      year: "2027",
       Role: "Student Coordinator",
-      linkedin: "#",
-      profile_picture: "/profile-images/students/blank-pfp.png",
+      linkedin: "https://www.linkedin.com/in/devang-aswani-847535300/",
+      profile_picture: "/profile-images/students/Devang-Aswani.png",
     },
     {
-      fullName: "Position Open",
-      year: "",
-      Role: "Student Coordinator",
-      linkedin: "#",
-      profile_picture: "/profile-images/students/blank-pfp.png",
+      fullName: "Hriday Sethi",
+      year: "2027",
+      Role: "Media Production Lead",
+      linkedin: "https://www.linkedin.com/in/hridaysethi/",
+      profile_picture: "/profile-images/students/Hriday-Sethi.jpeg",
     },
   ],
 };

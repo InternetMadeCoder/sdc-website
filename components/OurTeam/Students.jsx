@@ -146,13 +146,40 @@ const Students = () => {
           </motion.div>
         </div>
       </div>
-      {/* Media Team Section */}
+      {/* SDC Website Team */}
       <div className="flex flex-col gap-6 md:gap-16">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold">
-          Media Team
+          SDC Web Team
         </h2>
-        <div className="flex justify-center gap-8 sm:gap-16 lg:gap-32">
-          {[1, 2, 3].map((index) => (
+        <div className="flex justify-center gap-4 sm:gap-8 lg:gap-12 flex-wrap">
+          {[
+            {
+              fullName: "Vinayak Kumawat",
+              role: "Project Lead",
+              linkedin: "https://www.linkedin.com/in/vinayakkumawat/",
+              profile_picture: "/profile-images/students/Vinayak-Kumawat.png",
+            },
+            {
+              fullName: "Gayathri Ravindran",
+              role: "Developer",
+              linkedin: "https://www.linkedin.com/in/gayathri-ravindran/",
+              profile_picture:
+                "/profile-images/students/Gayathri-Ravindran.jpeg",
+            },
+            {
+              fullName: "Ishan Sharda",
+              role: "Developer",
+              linkedin:
+                "https://www.linkedin.com/in/ishan-pramod-sharda-8b0b6012b/",
+              profile_picture: "/profile-images/students/Ishan-Sharda.jpeg",
+            },
+            {
+              fullName: "Abhiman Panwar",
+              role: "Developer",
+              linkedin: "https://www.linkedin.com/in/abhiman-panwar-272aa7228/",
+              profile_picture: "/profile-images/students/Abhiman-Panwar.jpeg",
+            },
+          ].map((member, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -162,21 +189,21 @@ const Students = () => {
               className="flex flex-col items-center"
             >
               <Image
-                src="/profile-images/students/blank-pfp.png"
+                src={member.profile_picture}
                 width={150}
                 height={150}
                 alt="Profile Picture"
                 priority={true}
-                className="w-16 h-16 md:w-32 md:h-32 lg:w-44 lg:h-44 rounded-full mb-4 object-cover"
+                className="w-14 h-14 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full mb-2 md:mb-4 object-cover"
               />
-              <Link href="#" target="_blank">
-                <h3 className="font-bold text-[12px] md:text-lg lg:text-xl flex items-center gap-1 text-center">
-                  Position Open
-                  <FaLinkedin />
+              <Link href={member.linkedin} target="_blank">
+                <h3 className="font-bold text-[10px] md:text-base lg:text-lg flex items-center gap-1 text-center">
+                  {member.fullName}
+                  <FaLinkedin className="text-[8px] md:text-sm lg:text-base" />
                 </h3>
               </Link>
-              <p className="text-[10px] md:text-base lg:text-lg text-center font-medium">
-                Media Team Member
+              <p className="text-[8px] md:text-sm lg:text-base text-center font-medium">
+                {member.role}
               </p>
             </motion.div>
           ))}
