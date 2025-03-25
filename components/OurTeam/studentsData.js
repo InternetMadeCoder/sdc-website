@@ -269,16 +269,6 @@ export const students = [
     profile_picture: "/profile-images/students/Agam-Bhasin.jpeg",
   },
   {
-    id: 17,
-    fullName: "Abhay Tripathi",
-    year: "2024", // Updated from 2025
-    project_code: "PROJ04",
-    Position_in_Team: "Student Project Lead",
-    Role: "Full Stack Developer",
-    linkedin: "https://linkedin.com/in/abhaytri/",
-    profile_picture: "/profile-images/students/Abhay-Tripathi.jpg",
-  },
-  {
     id: 18,
     fullName: "Gokul Bansal",
     year: "2024", // Updated from 2025
