@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import {
   FaLaptopCode,
   FaHandshake,
@@ -21,10 +22,29 @@ import {
 } from "react-icons/bs";
 
 const JoinSDC = () => {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
+        if (heroBottom <= 0) {
+          document.body.classList.add("white-section");
+        } else {
+          document.body.classList.remove("white-section");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <section
+        ref={heroRef}
         className="relative h-screen flex items-center justify-center"
         style={{
           backgroundImage:
