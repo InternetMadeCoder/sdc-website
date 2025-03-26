@@ -68,3 +68,47 @@ export const testimonials = [
     //     profile: '/profile-images/industry-expert/Sarthak-Panwar.jpg',
     // },
 ];
+
+export const expertise = {
+    heading: "OUR EXPERTISE",
+    description: "At the Software Development Center (SDC), we specialize in crafting innovative solutions that bridge the gap between technology and real-world applications. Our expertise spans multiple domains, allowing us to develop cutting-edge projects that enhance user experiences, streamline processes, and drive impactful change.",
+    areas: [
+        {
+            id: 1,
+            title: "Software Development & Engineering",
+            description: "We build dynamic, high-performing software solutions that cater to diverse needs, ensuring efficiency, scalability, and seamless user interaction.",
+            icon: "code" // Material icon name
+        },
+        {
+            id: 2,
+            title: "Artificial Intelligence & Data Science",
+            description: "Leveraging data-driven approaches, we create intelligent systems that analyze information, automate tasks, and enhance decision-making processes.",
+            icon: "psychology"
+        },
+        {
+            id: 3,
+            title: "Cloud Computing & Infrastructure",
+            description: "With a focus on modern cloud technologies, we design scalable, secure, and adaptable solutions that support evolving business and user requirements.",
+            icon: "cloud"
+        },
+        {
+            id: 4,
+            title: "Cybersecurity & Secure Applications",
+            description: "Security is integral to our work, and we implement best practices to develop software that is resilient, reliable, and protected against threats.",
+            icon: "security"
+        },
+        {
+            id: 5,
+            title: "UI/UX & Digital Experiences",
+            description: "Beyond functionality, we emphasize creating intuitive and engaging digital experiences that blend aesthetics with usability.",
+            icon: "dashboard"
+        },
+        {
+            id: 6,
+            title: "Industry Collaborations & Innovation",
+            description: "Through partnerships and research-driven initiatives, we work on projects that push technological boundaries and contribute to meaningful advancements.",
+            icon: "handshake"
+        }
+    ],
+    footer: "At SDC, Manipal University Jaipur, we are committed to continuous learning, problem-solving, and driving progress in the ever-evolving tech landscape."
+};
