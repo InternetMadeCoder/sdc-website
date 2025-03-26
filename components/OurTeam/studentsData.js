@@ -616,7 +616,7 @@ export const students = [
     Position_in_Team: "Student Developer New",
     Role: "",
     linkedin: "https://www.linkedin.com/in/raaj-shekhar-0494b028b/",
-    profile_picture: "/profile-images/students/RaaJ-Shekhar.jpeg",
+    profile_picture: "/profile-images/students/Raaj-Shekhar.jpeg",
   },
   {
     id: 59,
