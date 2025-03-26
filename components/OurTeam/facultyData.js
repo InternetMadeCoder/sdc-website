@@ -88,7 +88,7 @@ export const faculty = {
     {
       id: 9,
       fullName: "Dr Prakash Ramani",
-      designation: "Professor",
+      designation: "Director of Admissions",
       email: "prakash.ramani@jaipur.manipal.edu",
       contact_number: "+91 8905987166",
       linkedin: "https://www.linkedin.com/in/prakash-ramani-b73b58170/",
