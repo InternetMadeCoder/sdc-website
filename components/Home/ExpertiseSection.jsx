@@ -42,7 +42,7 @@ export default function ExpertiseSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden hover:bg-amber-50"
+                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden hover:bg-[#FFE8CC]"
               >
                 {/* Mobile View - Normal Card */}
                 <div className="lg:hidden">
@@ -82,7 +82,7 @@ export default function ExpertiseSection() {
                     </h3>
                   </div>
 
-                  <div className="absolute inset-0 bg-amber-50 bg-opacity-98 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-[#FFE8CC] bg-opacity-98 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="text-gray-600 text-justify">
                       {area.description}
                     </p>

@@ -9,7 +9,7 @@ const TestimonialCard = ({
 }) => {
   return (
     <div
-      className={`px-4 py-6 bg-[#f5f1ed] rounded-[25px] flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start sm:px-12 h-[450px] md:h-[300px] ${className}`}
+      className={`px-4 py-6 bg-[#F5E6D3] rounded-[25px] flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start sm:px-12 h-[450px] md:h-[300px] ${className}`}
     >
       <div className="flex flex-col items-center md:items-start text-center shrink-0">
         <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] relative">

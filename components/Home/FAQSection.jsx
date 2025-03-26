@@ -96,13 +96,9 @@ export default function FAQSection() {
           <div className="text-center mt-8">
             <Link
               href="/faq"
-              className="relative inline-block px-8 py-4 bg-transparent text-[#EF9535] font-semibold border-2 border-[#EF9535] hover:bg-[#EF9535] hover:text-white transition-all duration-200 group overflow-hidden"
+              className="relative inline-block px-8 py-4 bg-[#EF9535] text-white font-semibold overflow-hidden before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 hover:before:left-full"
             >
-              <span className="relative z-10">See All Questions</span>
-              <div
-                className="absolute inset-0 bg-[#EF9535] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"
-                style={{ zIndex: 0 }}
-              ></div>
+              See All Questions
             </Link>
           </div>
         </div>
