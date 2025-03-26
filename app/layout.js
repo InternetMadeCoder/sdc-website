@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <SearchProvider>
           <Navbar />
-          {children}
+          <main>{children}</main>
           <Footer />
         </SearchProvider>
       </body>
