@@ -241,10 +241,10 @@ export default function FAQPage() {
             transform: `translateY(${scrollY * -0.2}px)`,
           }}
         >
-          <h1 className="text-6xl md:text-7xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto">
             Everything you need to know about Software Development Center
           </p>
         </div>
