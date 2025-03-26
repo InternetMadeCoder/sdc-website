@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
+  const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
 
   if (isMaintenanceMode) {
     return <MaintenancePage />;
