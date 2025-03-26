@@ -2,13 +2,15 @@ export const LINKS_1 = [
   { href: "/", key: "home", label: "Home" },
   { href: "/about-us", key: "about_us", label: "About Us" },
   { href: "/projects", key: "projects", label: "Projects" },
-  { href: "/blogs", key: "blog ", label: "Blog " },
+  // { href: "/blogs", key: "blog ", label: "Blog " },
+  { href: "/gallery", key: "gallery ", label: "Gallery " },
 ];
 
 export const LINKS_2 = [
   // Comment out Events section
   // { href: '/events', key: 'events', label: 'Events' },
   { href: "/our-team", key: "our_team", label: "Our Team" },
+  { href: "/faq", key: "faq", label: "FAQs" },
   { href: "/contact-us", key: "contact_us", label: "Contact Us" },
 ];
 
