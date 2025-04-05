@@ -121,8 +121,8 @@ const Projects = () => {
                 description={project.description}
                 onClick={() => openPopup(project)}
               />
-            ))}
-
+            ))}{" "}
+            {/* Remove the extra closing parenthesis here */}
             {selectedProject && (
               <Popup>
                 <div
@@ -141,60 +141,44 @@ const Projects = () => {
                       <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start w-full">
                         {/* Left Column */}
                         <div className="flex flex-col justify-start w-full sm:w-1/3 h-[400px]">
-                          {" "}
-                          {/* Added fixed height */}
-                          {/* Title */}
                           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-black mb-4">
                             {selectedProject.title}
                           </h2>
-                          {/* Flex container for bulletpoints and description */}
                           <div className="flex flex-col h-full">
-                            {/* Project Details */}
                             <div className="pr-4 mb-4">
                               <ul className="space-y-3 flex flex-col flex-wrap">
-                                {projectDetails
-                                  .filter(
-                                    (detail) =>
-                                      detail.project_code ===
-                                        selectedProject.project_code &&
-                                      (detail.Role === "Type" ||
-                                        detail.Role === "Year Created" ||
-                                        detail.Role === "Tech Stack")
-                                  )
-                                  .map((detail, index) => (
-                                    <li
-                                      key={index}
-                                      className="list-none text-justify"
-                                    >
-                                      <span className="font-bold text-[#4C1D95]">
-                                        {" "}
-                                        {/* Changed to dark purple */}
-                                        {detail.Role}:
-                                      </span>{" "}
-                                      {detail.BasicSkillsRequired || "N/A"}
-                                    </li>
-                                  ))}
+                                <li className="list-none text-justify">
+                                  <span className="font-bold text-[#4C1D95]">
+                                    Type:
+                                  </span>{" "}
+                                  {selectedProject.type || "N/A"}
+                                </li>
+                                <li className="list-none text-justify">
+                                  <span className="font-bold text-[#4C1D95]">
+                                    Tech Stack:
+                                  </span>{" "}
+                                  {selectedProject.tech_stack || "N/A"}
+                                </li>
+                                <li className="list-none text-justify">
+                                  <span className="font-bold text-[#4C1D95]">
+                                    Year Created:
+                                  </span>{" "}
+                                  {selectedProject.year_created || "N/A"}
+                                </li>
                                 <li className="list-none text-justify">
                                   <span className="font-bold text-[#4C1D95]">
                                     Faculty Mentor:
                                   </span>{" "}
-                                  {getMentorRole(
-                                    selectedProject.project_code,
-                                    "Faculty Mentor"
-                                  )}
+                                  {selectedProject.faculty_mentor || "N/A"}
                                 </li>
                                 <li className="list-none text-justify">
                                   <span className="font-bold text-[#4C1D95]">
                                     Industry Mentor:
                                   </span>{" "}
-                                  {getMentorRole(
-                                    selectedProject.project_code,
-                                    "Industry Expert"
-                                  )}
+                                  {selectedProject.industry_mentor || "N/A"}
                                 </li>
                               </ul>
                             </div>
-
                             {/* Video instruction text - moved up and size increased */}
                             {selectedProject.link && !isPlaying && (
                               <p className="text-[#D34747] text-sm sm:text-base mt-4 animate-pulse">
@@ -341,10 +325,11 @@ const Projects = () => {
                 </div>
               </Popup>
             )}
-          </div>
+          </div>{" "}
+          {/* Ensure this closing div matches the parent container */}
           {visibleProjects < filteredProjects.length && (
             <button
-              className="px-10 py-2 text-black text-sm font-semibold lg:py-3 lg:px-12 lg:text-lg bg-yellow-400 mt-16"
+              className="px-10 py-2 text-white text-sm font-semibold lg:py-3 lg:px-12 lg:text-lg bg-[#EF9535] mt-16"
               onClick={loadMoreProjects}
               title="LOAD MORE"
             >

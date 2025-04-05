@@ -12,7 +12,7 @@ const AboutSection = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl  lg:text-6xl">{aboutText.heading}</h1>
                 <h2 className="text-lg lg:text-xl">{aboutText.subHeading}</h2>
                 <p className="text-base lg:text-lg">{aboutText.description}</p>
-                <Button className="mt-4" link="/about-us" title="READ MORE" />
+                <Button className="mt-2" link="/about-us" title="READ MORE" />
             </div>
         </div>
     )
