@@ -164,7 +164,7 @@ const Students = () => {
               role: "Developer",
               linkedin: "https://www.linkedin.com/in/gayathri-ravindran/",
               profile_picture:
-                "/profile-images/students/Gayathri-Ravindran.jpeg",
+                "/profile-images/students/Gayathri-Ravindran.png",
             },
             {
               fullName: "Ishan Sharda",
