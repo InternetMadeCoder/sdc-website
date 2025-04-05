@@ -104,9 +104,9 @@ export const expertise = {
     },
     {
       id: 4,
-      title: "Reliable & Scalable Software",
+      title: "Cybersecurity & Secure Applications",
       description:
-        "We build software solutions with a focus on performance, reliability, and scalability, ensuring seamless user experiences.",
+        "Security is integral to our work, and we implement best practices to develop software that is resilient, reliable, and protected against threats.",
       icon: "security",
     },
     {

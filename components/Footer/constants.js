@@ -10,8 +10,8 @@ export const LINKS_2 = [
   // Comment out Events section
   // { href: '/events', key: 'events', label: 'Events' },
   { href: "/our-team", key: "our_team", label: "Our Team" },
-  { href: "/contact-us", key: "contact_us", label: "Contact Us" },
   { href: "/faq", key: "faq", label: "FAQs" },
+  { href: "/contact-us", key: "contact_us", label: "Contact Us" },
 ];
 
 export const LINKS_3 = [

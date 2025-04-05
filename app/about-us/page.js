@@ -6,7 +6,6 @@ import {
   visionText,
   whyConst,
   commitText,
-  journeyText,
 } from "@/components/About/constants";
 import { useState, useEffect, useRef } from "react";
 import {
@@ -44,13 +43,13 @@ export default function About() {
     if (isInView1) {
       mainControls1.start("visible");
     }
-  }, [isInView1, mainControls1]);
+  }, [isInView1,mainControls1]);
 
   useEffect(() => {
     if (isInView2) {
       mainControls2.start("visible");
     }
-  }, [isInView2, mainControls2]);
+  }, [isInView2,mainControls2]);
   const popVariants = {
     hidden: { opacity: 0, y: 75 },
     visible: {
@@ -68,7 +67,7 @@ export default function About() {
     if (wInView) {
       wControls.start("after");
     }
-  }, [wInView, wControls]);
+  }, [wInView,wControls]);
 
   const wordVariants = {
     before: { opacity: 0, x: -100 },
@@ -78,29 +77,10 @@ export default function About() {
     },
   };
 
-  // journey animation
-  const journeyRef = useRef(null);
-  const isJourneyInView = useInView(journeyRef);
-  const journeyControls = useAnimation();
-
-  useEffect(() => {
-    if (isJourneyInView) {
-      journeyControls.start("visible");
-    }
-  }, [isJourneyInView, journeyControls]);
-
-  const journeyVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, delay: i * 0.3 },
-    }),
-  };
-
   return (
     <div className="font-manrope">
-      <div
+      <
+        div
         ref={ref}
         className="h-screen flex items-center relative overflow-hidden"
       >
@@ -153,48 +133,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* journey section */}
-        <motion.div
-          ref={journeyRef}
-          className="flex flex-col items-center gap-8 px-8 sm:px-16 md:px-20 xl:px-32 sm:py-16 py-8"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <motion.h1
-              variants={journeyVariants}
-              initial="hidden"
-              animate={journeyControls}
-              custom={0}
-              className="text-3xl sm:text-4xl md:text-5xl"
-            >
-              {journeyText.heading}
-            </motion.h1>
-            <motion.h3
-              variants={journeyVariants}
-              initial="hidden"
-              animate={journeyControls}
-              custom={0.5}
-              className="text-lg sm:text-xl md:text-2xl text-gray-600"
-            >
-              {journeyText.subHeading}
-            </motion.h3>
-          </div>
-          <div className="text-base sm:text-xl text-justify flex flex-col gap-6">
-            {[journeyText.para1, journeyText.para2, journeyText.para3].map(
-              (para, i) => (
-                <motion.p
-                  key={i}
-                  variants={journeyVariants}
-                  initial="hidden"
-                  animate={journeyControls}
-                  custom={i + 1}
-                >
-                  {para}
-                </motion.p>
-              )
-            )}
-          </div>
-        </motion.div>
-
         {/* vision */}
         <div className="flex flex-col items-center sec sm:gap-12 gap-4 px-8 sm:px-16 md:px-20 xl:px-32 text-center white-section py-4 md:mb-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl">
@@ -213,17 +151,7 @@ export default function About() {
                 animate={wControls}
                 transition={{ duration: 0.3, delay: index * 0.2 }} // Modified these values
               >
-                <div
-                  className={`pb-2 border-b-4 ${
-                    index === 0
-                      ? "border-b-[#D34747]"
-                      : index === 1
-                      ? "border-b-[#BD9101]"
-                      : "border-b-[#EB9335]"
-                  }`}
-                >
-                  {word}
-                </div>
+                <div className={`pb-2 border-b-4 ${ index===0 ? 'border-b-[#D34747]' : index===1 ? 'border-b-[#BD9101]': 'border-b-[#EB9335]'}`}>{word}</div>
               </motion.div>
             ))}
           </div>

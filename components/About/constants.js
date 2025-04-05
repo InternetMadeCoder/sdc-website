@@ -78,11 +78,3 @@ export const commitText = {
     description: "We are committed to providing an enriching and engaging experience for our students. The SDC is not just a place to learn; it's a journey to explore, experiment, and excel. As we embark on this exciting venture, we invite you to be a part of our community, where passion meets expertise, and dreams become accomplishments.",
     foot: "Join us at the SDC, where the future of software development is being shaped, one line of code at a time.",
 };
-
-export const journeyText = {
-    heading: "OUR JOURNEY",
-    subHeading: "A Journey of Growth and Vision",
-    para1: "It all began back in 2022, when two forward-thinking professors at Manipal University Jaipur—Prof. Neha Chaudhary and Prof. Amit Garg—found themselves wondering how to give students more than just a standard classroom experience. They dreamed of an environment where learners could explore, create, and push the boundaries of what's possible. Their vision was simple but ambitious: an experience-based learning system that would help students grow into capable, well-rounded individuals and provide future generations with an equally rich platform for exploration.",
-    para2: "This dream took shape as the Software Development Centre (SDC), a place where big ideas come to life. From day one, SDC has stood firm on three guiding pillars—the Student, the Alumni, and the Industry—ensuring that every initiative, collaboration, and project is deeply rooted in real-world needs and opportunities. It's more than just a center; it's a vibrant community where fresh talent meets seasoned experience, and where the seeds of innovation are constantly being sown.",
-    para3: "One of SDC's most notable accomplishments has been the creation of the Notesheet Managing System—an invaluable tool that streamlines the academic process for B.Tech students across all streams at MUJ. To this day, it remains a testament to what can be achieved when vision, collaboration, and hard work converge. In labs and classrooms across campus, this system quietly underscores the impact of hands-on learning, empowering students and faculty to focus on what truly matters: growth and discovery."
-};

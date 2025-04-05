@@ -18,22 +18,18 @@ const PortfolioSection = () => {
 
         {/* Enhanced carousel with improved size and readability */}
         <div className="mb-4 w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
-          <Carousel autoSlide className="shadow-2xl">
+          <Carousel autoSlide className="shadow-lg">
             {projects.slice(2, 5).map((display) => (
               <div
                 key={display.id}
-                className="flex flex-col h-52 sm:h-56 p-5 sm:p-7 rounded-xl bg-gradient-to-br from-white/15 via-white/10 to-white/5 backdrop-blur-md relative transition-all duration-300 hover:scale-[1.02] hover:from-white/20 hover:via-white/15 hover:to-white/10 border border-white/10"
+                className="flex flex-col justify-between h-64 border-2 p-6 rounded-xl bg-opacity-10 bg-white backdrop-blur-sm"
               >
-                <div className="flex flex-col h-full">
-                  <h3 className="text-lg sm:text-xl font-semibold tracking-wide mb-2 sm:mb-3 bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">
                     {display.title}
                   </h3>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-px w-12 bg-gradient-to-r from-white/60 to-transparent"></div>
-                    <div className="h-1 w-1 rounded-full bg-white/60"></div>
-                  </div>
-                  <p className="text-sm sm:text-base text-white/80 leading-relaxed font-light">
-                    {display.description.slice(0, 140)}...
+                  <p className="text-base leading-relaxed">
+                    {display.description.slice(0, 180)}...
                   </p>
                 </div>
                 <Link
@@ -41,14 +37,9 @@ const PortfolioSection = () => {
                     pathname: "/projects",
                     query: { openProject: display.id },
                   }}
-                  className="absolute bottom-5 sm:bottom-7 right-5 sm:right-7 text-sm font-medium text-white/90 hover:text-white transition-all duration-300 flex items-center gap-2 group"
+                  className="text-sm mt-4 underline font-medium self-end"
                 >
-                  <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-white after:transition-transform after:duration-300 group-hover:after:origin-left group-hover:after:scale-x-100">
-                    Read more
-                  </span>
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                  Read more →
                 </Link>
               </div>
             ))}

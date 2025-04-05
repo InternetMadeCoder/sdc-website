@@ -132,7 +132,7 @@ const JoinSDC = () => {
                   {
                     icon: <FaHandshake className="w-6 h-6" />,
                     title: "Software Development",
-                    text: "Develop software required by the institute or the outside community",
+                    text: "Develop software's required by the institute or the outside community",
                   },
                   {
                     icon: <FaIndustry className="w-6 h-6" />,
@@ -168,7 +168,7 @@ const JoinSDC = () => {
                   {
                     icon: <FaBriefcase className="w-6 h-6" />,
                     title: "Opportunities",
-                    text: "Facilitate internships and job opportunities for students",
+                    text: "Facilitate internship and job opportunities for students",
                   },
                   {
                     icon: <FaUserGraduate className="w-6 h-6" />,
@@ -333,7 +333,7 @@ const JoinSDC = () => {
                   {
                     icon: <BsFileEarmarkText className="w-5 h-5" />,
                     title: "Selection Process",
-                    text: "Student selection considers technical skills, aptitude, and potential. The process includes shortlisting, technical interviews, and personal interviews.",
+                    text: "Student selection considers technical skills, aptitude, and potential. Process includes shortlisting, technical interviews, and personal interviews.",
                   },
                   {
                     icon: <BsAward className="w-5 h-5" />,

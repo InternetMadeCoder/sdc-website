@@ -9,95 +9,81 @@ import { nav_links } from "./constants";
 import { projects } from "./constants";
 import { FaSearch } from "react-icons/fa";
 import { SearchContext } from "../Context/SearchContext";
-import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation'; // Add this import
 
 const Navbar = () => {
-  const { searchQuery, handleSearch, clearSearch } = useContext(SearchContext);
-  const pathname = usePathname();
+    const { searchQuery, handleSearch, clearSearch } = useContext(SearchContext);
+    const pathname = usePathname(); // Add this line to get current path
   const [isDarkBg, setIsDarkBg] = useState(false);
-  const [isBlackBg, setIsBlackBg] = useState(pathname === "/");
+  const [isBlackBg, setIsBlackBg] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showSearchTab, setShowSearchTab] = useState(false);
+ // const [searchQuery, setSearchQuery] = useState("");
 
-  // Initial state setup
-  useEffect(() => {
-    const initializeNavbar = () => {
-      if (pathname === "/") {
-        setIsBlackBg(true);
-        setIsDarkBg(false);
-      } else {
-        setIsBlackBg(false);
-        setIsDarkBg(false);
-      }
-    };
-
-    initializeNavbar();
-    return () => {
-      // Reset state when component unmounts
-      setIsBlackBg(false);
-      setIsDarkBg(false);
-    };
-  }, [pathname]);
-
-  // Keep the scroll handler separate
   useEffect(() => {
     const handleScroll = () => {
-      if (pathname === "/") {
-        const heroSection = document.querySelector(".hero-section");
-        if (!heroSection) return; // Guard clause
+      const scrollPosition =
+        window.scrollY || document.documentElement.scrollTop;
 
-        const heroRect = heroSection.getBoundingClientRect();
+      // Check if the user has scrolled past the initial screen (i.e., viewport height)
+      const hasScrolledPastInitialScreen = scrollPosition > window.innerHeight;
+
+      if (hasScrolledPastInitialScreen) {
         const whiteSections = document.querySelectorAll(".white-section");
 
-        if (heroRect.bottom > 0) {
-          setIsDarkBg(false);
-          setIsBlackBg(true);
-          return;
+        if (whiteSections) {
+          const isAnyWhiteSectionVisible = Array.from(whiteSections).some(
+            (section) => {
+              const rect = section.getBoundingClientRect();
+              return rect.top < window.innerHeight && rect.bottom >= 0;
+            }
+          );
+
+          setIsDarkBg(isAnyWhiteSectionVisible);
         }
 
-        const isInWhiteSection = Array.from(whiteSections).some((section) => {
-          const rect = section.getBoundingClientRect();
-          return rect.top <= 80 && rect.bottom >= 0;
-        });
+        const darkSections = document.querySelectorAll(".dark-section");
 
-        setIsDarkBg(isInWhiteSection);
-        setIsBlackBg(!isInWhiteSection);
+        if (darkSections) {
+          const isAnyDarkSectionVisible = Array.from(darkSections).some(
+            (section) => {
+              const rect = section.getBoundingClientRect();
+              return rect.top < window.innerHeight && rect.bottom >= 0;
+            }
+          );
+
+          setIsBlackBg(isAnyDarkSectionVisible);
+        }
       } else {
-        const scrollPosition =
-          window.scrollY || document.documentElement.scrollTop;
-        const hasScrolledPastInitialScreen =
-          scrollPosition > window.innerHeight;
-
-        if (hasScrolledPastInitialScreen) {
-          const whiteSections = document.querySelectorAll(".white-section");
-          if (whiteSections) {
-            const isAnyWhiteSectionVisible = Array.from(whiteSections).some(
-              (section) => {
-                const rect = section.getBoundingClientRect();
-                return rect.top < window.innerHeight && rect.bottom >= 0;
-              }
-            );
-            setIsDarkBg(isAnyWhiteSectionVisible);
-          }
-        } else {
-          setIsDarkBg(false);
-          setIsBlackBg(false);
-        }
+        // If not scrolled past the initial screen, reset the background states
+        setIsDarkBg(false);
+        setIsBlackBg(false);
       }
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
 
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  //   useEffect(() => {
+  //     if (searchQuery) {
+  //       localStorage.setItem("searchQuery", searchQuery);
+  //     }
+  //   }, [searchQuery]);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
+ // Filter projects based on search query
+//   const filteredProjects = projects.filter(project =>
+//       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//       project.tag.toLowerCase().includes(searchQuery.toLowerCase())
+//   );
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      handleSearch(e.target.value);
+      handleSearch(e.target.value); // Use context's handleSearch
+      // Don't hide search tab if there's a query
       if (!e.target.value) {
         setShowSearchTab(false);
       }
@@ -106,29 +92,34 @@ const Navbar = () => {
 
   const handleSearchClick = () => {
     if (showSearchTab && !searchQuery) {
+      // Only hide if there's no query
       setShowSearchTab(false);
     } else {
       setShowSearchTab(true);
     }
   };
 
+  // Initialize showSearchTab based on whether there's a search query
   useEffect(() => {
     setShowSearchTab(!!searchQuery);
   }, [searchQuery]);
 
+  // Clear search when navigating away from projects page
   useEffect(() => {
-    if (pathname !== "/projects") {
+    if (pathname !== '/projects') {
       clearSearch();
       setShowSearchTab(false);
     }
   }, [pathname]);
 
+  // Clear search on page refresh
   useEffect(() => {
     clearSearch();
     setShowSearchTab(false);
   }, []);
 
-  const showSearchFeature = pathname === "/projects";
+  // Only show search on portfolio page
+  const showSearchFeature = pathname === '/projects';
 
   return (
     <nav
@@ -151,8 +142,8 @@ const Navbar = () => {
           />
         </Link>
         <ul className="hidden lg:flex gap-16 text-base items-center">
-          {nav_links.map((link) =>
-            link.key === "join_sdc" ? (
+          {nav_links.map((link) => (
+            link.key === 'join_sdc' ? (
               <Link key={link.key} href={link.href}>
                 <button className="px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white font-semibold transform hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:shadow-[0_0_25px_rgba(249,115,22,0.5)]">
                   {link.label}
@@ -163,7 +154,7 @@ const Navbar = () => {
                 {link.label}
               </Link>
             )
-          )}
+          ))}
 
           {showSearchFeature && (
             <>
@@ -173,7 +164,7 @@ const Navbar = () => {
                   type="text"
                   placeholder="Search"
                   value={searchQuery}
-                  onChange={(e) => handleSearch(e.target.value)}
+                  onChange={(e) => handleSearch(e.target.value)} // Use context's handleSearch
                   onKeyDown={handleEnter}
                 />
               )}
@@ -218,9 +209,9 @@ const Navbar = () => {
                     key={link.key}
                     href={link.href}
                     className={`text-lg font-semibold hover:underline ${
-                      link.key === "join_sdc"
-                        ? "inline-block px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white transform hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:shadow-[0_0_25px_rgba(249,115,22,0.5)]"
-                        : ""
+                      link.key === 'join_sdc' ? 
+                      'inline-block px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-yellow-400 text-white transform hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:shadow-[0_0_25px_rgba(249,115,22,0.5)]' : 
+                      ''
                     }`}
                   >
                     {link.label}

@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 const HeroSection = () => {
 
     return (
-        <div className="hero-section px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 bg-black flex flex-col justify-center overflow-hidden relative text-white dark-section">
+        <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 bg-black flex flex-col justify-center overflow-hidden relative text-white dark-section">
 
             <ParticlesComponent className="-z-10 h-full w-full absolute" />
 
