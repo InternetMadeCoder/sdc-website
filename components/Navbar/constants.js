@@ -6,4 +6,5 @@ export const nav_links = [
   { href: "/contact-us", key: "contact_us", label: "Contact Us" },
   { href: "/about-us", key: "about_us", label: "About us" },
   { href: "/join-sdc", key: "join_sdc", label: "Join SDC" },
+  { href: 'http://localhost:3000/login', key: 'login', label: 'Login' },
 ];
